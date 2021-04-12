@@ -136,7 +136,9 @@ Get dump for Content Master:
     - ssh demo-content@demo01.typo3server.ch "php ./content.demo.typo3.org/current/bin/typo3cms database:export -c Default -e 'cache_*' -e '[bf]e_sessions' -e 'be_users' -e 'sys_log' -e 'sys_history' -e 'sys_refindex' | gzip -9 -c" > ./dump/dump.sql.gz
     - rsync -avz --exclude='_processed_' demo-content@demo01.typo3server.ch:~/content.demo.typo3.org/shared/web/fileadmin/ ./dump/fileadmin
     - zip -r demo-data.zip dump
+    # Delete existing package, re-create and attach file
     - |
-      curl --request DELETE --header "JOB-TOKEN: ${CI_JOB_TOKEN}" ${PACKAGE_REGISTRY_URL}/1
+      export GENERIC_PACKAGE_ID=`curl --request GET --header "JOB-TOKEN: ${CI_JOB_TOKEN}" "${PACKAGE_REGISTRY_URL}?package_name=site&package_type=generic" | jq '.[0].id'`
+      [ "$GENERIC_PACKAGE_ID" == "null" ] && echo "No package to delete..." || curl --request DELETE --header "JOB-TOKEN: ${CI_JOB_TOKEN}" "${PACKAGE_REGISTRY_URL}$GENERIC_PACKAGE_ID"
     - |
       curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./demo-data.zip ${PACKAGE_REGISTRY_URL}/generic/site/${GITLAB_RELEASE_VERSION}/demo-data.zip
