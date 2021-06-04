@@ -49,6 +49,7 @@ build:php:
   only:
     - tags
     - main
+    - develop
 
 # compile and build JS / CSS
 # should be used in conjunction with an artifact
@@ -102,6 +103,7 @@ build-frontend:
   only:
     - tags
     - main
+    - develop
 
 deploy:production:
   <<: *deploy
