@@ -4,6 +4,9 @@ baseVariants:
     base: 'https://demo.typo3.dev/'
     condition: 'applicationContext == "Production/Content"'
   -
+    base: 'https://test.demo.typo3.dev/'
+    condition: 'applicationContext == "Testing"'
+  -
     base: 'https://demo.typo3.org.ddev.site/'
     condition: 'applicationContext == "Development/DDEV"'
 errorHandling:
