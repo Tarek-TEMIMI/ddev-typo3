@@ -27,6 +27,14 @@
 				<source>min.</source>
 				<target>דקות</target>
 			</trans-unit>
+			<trans-unit id="username" resname="username">
+				<source>Username</source>
+				<target>שם משתמש</target>
+			</trans-unit>
+			<trans-unit id="password" resname="password">
+				<source>Password</source>
+				<target>סיסמה</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

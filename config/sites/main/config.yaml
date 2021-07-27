@@ -50,7 +50,7 @@ languages:
     fallbacks: ''
   -
     title: Hebrew
-    enabled: false
+    enabled: true
     base: /he/
     typo3Language: he
     locale: he_IL.UTF-8

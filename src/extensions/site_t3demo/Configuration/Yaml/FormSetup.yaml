@@ -50,4 +50,4 @@ TYPO3:
             # remove honeypot from visible area for rtl languages as well
             Honeypot:
               properties:
-                styleAttribute: 'position: absolute; margin-top: 0; margin-bottom: 0; margin-block: -999em 0;'
+                styleAttribute: 'position: absolute; margin-inline-start: 999em;'

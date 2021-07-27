@@ -22,6 +22,12 @@
 			<trans-unit id="resetbanner.timeunit" resname="resetbanner.timeunit">
 				<source>min.</source>
 			</trans-unit>
+			<trans-unit id="username" resname="username">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="password" resname="password">
+				<source>Password</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

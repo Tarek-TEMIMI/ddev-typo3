@@ -26,13 +26,14 @@ To set up the TYPO3 Demo Project for local development
 1. Download code `git clone ssh://git@gitlab.typo3.org:2222/services/demo.typo3.org/site.git`
 2. Install composer packages `ddev composer install`
 3. Build the frontend `ddev composer frontend-builds`
-4. Download database/fileadmin: Go to the [Generic Packages](https://gitlab.typo3.org/services/demo.typo3.org/site/-/packages) section in Gitlab, select the "site"-Package and download the latest "demo-data.zip"
-5. Extract the downloaded file
-6. Copy the `fileadmin` folder to `<document root>web/fileadmin`
-7. Import database: `ddev import-db --src=/path/to/database/dump.sql.gz`
-8. Update schema: `ddev exec bin/typo3cms database:updateschema`
-9. Create a backend user `ddev exec bin/typo3cms backend:createadmin username password`
-10. Start the project running `ddev start`
+4. Get database and fileadmin using `ddev pull dump` or download and import it manually:
+   1. Download database/fileadmin: Go to the [Generic Packages](https://gitlab.typo3.org/services/demo.typo3.org/site/-/packages) section in Gitlab, select the "site"-Package and download the latest "demo-data.zip"
+   2. Extract the downloaded file
+   3. Copy the `fileadmin` folder to `<document root>web/fileadmin`
+   4. Import database: `ddev import-db --src=/path/to/database/dump.sql.gz`
+6. Update schema: `ddev typo3cms database:updateschema`
+7. Create a backend user `ddev typo3cms backend:createadmin username password`
+8. Start the project running `ddev start`
 
 ## License
 

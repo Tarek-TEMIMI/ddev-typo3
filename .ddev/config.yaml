@@ -13,7 +13,14 @@ mysql_version: ""
 provider: default
 use_dns_when_possible: true
 composer_version: ""
-
+hooks:
+  pre-pull:
+    - exec: "mkdir -p ./.ddev/typo3-demo-data"
+    - exec: "curl https://git-t3o.typo3.org/api/v4/projects/98/packages/generic/site/1.0.0/demo-data.zip -o ./.ddev/typo3-demo-data/demo-data.zip"
+    - exec: "unzip ./.ddev/typo3-demo-data/demo-data.zip -d ./.ddev/typo3-demo-data/"
+  post-pull:
+    - exec: "rm -Rf ./.ddev/typo3-demo-data"
+    - exec: "bin/typo3cms database:updateschema"
 
 # This config.yaml was created with ddev version v1.16.0
 # webimage: drud/ddev-webserver:v1.16.0

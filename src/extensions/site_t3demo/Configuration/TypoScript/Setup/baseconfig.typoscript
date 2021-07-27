@@ -77,3 +77,10 @@ lib.contentElement {
 
 # use the "default" for our own content elements
 tt_content.default =< lib.contentElement
+
+# add gitlab information
+config {
+  headerComment (
+    The Demo Project source code is publicly available on https://gitlab.typo3.org/services/demo.typo3.org/site
+  )
+}

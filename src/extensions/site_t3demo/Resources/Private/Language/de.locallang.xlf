@@ -27,6 +27,14 @@
 				<source>min.</source>
 				<target>min.</target>
 			</trans-unit>
+			<trans-unit id="username" resname="username">
+				<source>Username</source>
+				<target>Benutzername</target>
+			</trans-unit>
+			<trans-unit id="password" resname="password">
+				<source>Password</source>
+				<target>Passwort</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
