@@ -64,6 +64,10 @@ task('php:reload-prod', function() {
     //run('php-reload');
     run('sudo /usr/sbin/service php74-demo-prod reload');
 })->onStage('production');
+task('php:reload-test', function() {
+    //run('php-reload');
+    run('sudo /usr/sbin/service php74-demo-test reload');
+})->onStage('staging');
 
 task('typo3:demo:disablelogin', function() {
     cd('{{release_path}}');
@@ -83,6 +87,7 @@ task('deploy', [
     'typo3:demo:disablelogin',
     'php:reload',
     'php:reload-prod',
+    'php:reload-test',
     'typo3:cache:flush',
     'typo3:language:update',
     'deploy:unlock',
