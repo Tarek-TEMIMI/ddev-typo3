@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f22683fb3c40a887382cc11a29248de",
+    "content-hash": "9f8f124a5ff9583172296e5d268d9951",
     "packages": [
         {
             "name": "b13/assetcollector",
@@ -186,16 +186,21 @@
         },
         {
             "name": "b13/demologin",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "src/extensions/demologin",
-                "reference": "37a75f170610dab426b51da278b55c4c187d4277"
+                "reference": "ed7bb98750a6029b16821437d05d736b2403e4a1"
             },
             "require": {
                 "typo3/cms-core": "^10.4 || ^11"
             },
             "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "demologin"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "B13\\DemoLogin\\": "Classes/"
