@@ -75,6 +75,6 @@
 	},
 	"require-dev": {
 		"saschaegerer/phpstan-typo3": "^0.13.1",
-		"typo3/coding-standards": "^0.2.0"
+		"typo3/coding-standards": "0.3.0"
 	}
 }
