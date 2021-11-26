@@ -2,7 +2,7 @@
 renderingOptions:
   submitButtonLabel: שלח
 type: Form
-identifier: kontaktformular
+identifier: contactForm_he
 label: טופס יצירת קשר
 prototypeName: standard
 finishers:

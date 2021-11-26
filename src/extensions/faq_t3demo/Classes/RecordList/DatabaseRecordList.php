@@ -29,4 +29,19 @@ class DatabaseRecordList extends \TYPO3\CMS\Recordlist\RecordList\DatabaseRecord
         // empty head
         return '<thead></thead>';
     }
+
+    /**
+     * Get total items of RecordList
+     *
+     * @param string $table
+     * @param int $id
+     * @return int
+     */
+    public function getTotalItems(string $table, int $id): int
+    {
+        $queryBuilderTotalItems = $this->getQueryBuilder($table, $id, [], ['*'], false, 0, 1);
+        return (int)$queryBuilderTotalItems->count('*')
+            ->execute()
+            ->fetch(\PDO::FETCH_COLUMN);
+    }
 }

@@ -75,11 +75,11 @@ class FaqController
         );
         $dblist = GeneralUtility::makeInstance(DatabaseRecordList::class);
         $dblist->pageRow = $pageinfo;
-        $dblist->calcPerms = $this->getBackendUser()->calcPerms($pageinfo);
+        $dblist->calcPerms = new Permission($this->getBackendUser()->calcPerms($pageinfo));
+        $dblist->displayColumnSelector = false;
+        $dblist->displayRecordDownload = false;
         $dblist->start($this->extensionConfiguration['pid'], 'tx_faqt3demo_faq', (int)GeneralUtility::_GP('pointer'), $filter, 0, self::RECORDS_TO_DISPLAY);
-        $dblist->dontShowClipControlPanels = true;
         $dblist->setModuleData(['bigControlPanel' => true]);
-        $dblist->generateList();
         return $dblist;
     }
 
@@ -95,7 +95,7 @@ class FaqController
     {
         $filter = $request->getQueryParams()['filter'] ?? $request->getParsedBody()['filter'] ?? '';
         $dblist = $this->getDatabaseRecordList($filter);
-        if ((int)$dblist->totalItems === 0) {
+        if ($dblist->getTotalItems('tx_faqt3demo_faq', $this->extensionConfiguration['pid']) === 0) {
             if ($filter === '') {
                 $this->flashMessageQueue->enqueue(
                     new FlashMessage(
@@ -114,7 +114,7 @@ class FaqController
                 );
             }
         }
-        $this->view->assign('dblist', $dblist);
+        $this->view->assign('dblist', $dblist->generateList());
         $this->view->assign('filter', $filter);
         $this->view->assign('extensionConfiguration', $this->extensionConfiguration);
     }

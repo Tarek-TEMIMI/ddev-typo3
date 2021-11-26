@@ -46,7 +46,7 @@ return [
         'content_sync' => [
             'configuration' => [
                 'databaseTables' => '',
-                'excludeDatabaseTables' => 'sys_log,cache_*,tx_extensionmanager_domain_model_*,tx_contentsync_job,tx_scheduler_*',
+                'excludeDatabaseTables' => 'sys_registry,sys_log,cache_*,tx_extensionmanager_domain_model_*,tx_contentsync_job,tx_scheduler_*',
                 'syncFiles' => 'web/fileadmin',
             ],
             'sourceNode' => [
