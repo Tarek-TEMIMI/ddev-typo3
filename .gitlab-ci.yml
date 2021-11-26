@@ -75,7 +75,7 @@ build:php:
 # rsyncs the artifacts to the target server via deployer
 .deploy: &deploy
   <<: *prepare-ssh
-  image: composer:2.1.8
+  image: composer:2.0.8
   variables:
     # no git needed, only the artifacts are required
     GIT_STRATEGY: none
@@ -127,7 +127,7 @@ deploy:staging:
 # Download database and fileadmin
 Get dump for Content Master:
   <<: *prepare-ssh
-  image: composer:2.1.8
+  image: composer:2.0.8
   when: manual
   variables:
     GITLAB_RELEASE_VERSION: "1.0.0"
