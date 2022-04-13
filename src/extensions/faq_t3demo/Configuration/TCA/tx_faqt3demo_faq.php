@@ -9,14 +9,14 @@ return [
         'tstamp' => 'tstamp',
         'versioningWS' => false,
         'security' => [
-            'ignoreWebMountRestriction' => true
+            'ignoreWebMountRestriction' => true,
         ],
         'languageField' => 'sys_language_uid',
         'sortby' => 'sorting',
         'origUid' => 't3_origuid',
         'delete' => 'deleted',
         'enablecolumns' => [
-            'disabled' => 'disabled'
+            'disabled' => 'disabled',
         ],
         'typeicon_classes' => [
             'default' => 'mimetypes-x-faq_t3demo',
@@ -24,12 +24,12 @@ return [
         'searchFields' => 'question,answer',
         'translationSource' => 'l10n_source',
         'transOrigDiffSourceField' => 'l10n_diffsource',
-        'transOrigPointerField' => 'l10n_parent'
+        'transOrigPointerField' => 'l10n_parent',
     ],
     'types' => [
         '1' => [
             'showitem' => '
-                question, answer'
+                question, answer',
         ],
     ],
     'columns' => [
@@ -42,10 +42,10 @@ return [
                     [
                         0 => '',
                         1 => '',
-                        'invertStateDisplay' => true
-                    ]
+                        'invertStateDisplay' => true,
+                    ],
                 ],
-            ]
+            ],
         ],
         'question' => [
             'label' => 'LLL:EXT:faq_t3demo/Resources/Private/Language/locallang_db.xlf:faq.question',
@@ -53,9 +53,9 @@ return [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim,required',
-                'max' => 255
+                'max' => 255,
             ],
-            'l10n_mode' => 'prefixLangTitle'
+            'l10n_mode' => 'prefixLangTitle',
         ],
         'answer' => [
             'label' => 'LLL:EXT:faq_t3demo/Resources/Private/Language/locallang_db.xlf:faq.answer',
@@ -64,9 +64,9 @@ return [
                 'eval' => 'trim,required',
                 'cols' => 80,
                 'rows' => 15,
-                'enableRichtext' => true
+                'enableRichtext' => true,
             ],
-            'l10n_mode' => 'prefixLangTitle'
-        ]
+            'l10n_mode' => 'prefixLangTitle',
+        ],
     ],
 ];

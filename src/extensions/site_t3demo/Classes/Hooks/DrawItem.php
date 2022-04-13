@@ -48,8 +48,8 @@ class DrawItem implements PageLayoutViewDrawItemHookInterface
                     $queryBuilder->expr()->in('uid', $queryBuilder->createNamedParameter(explode(',', $row['pages']), Connection::PARAM_INT_ARRAY))
                 );
             $row['relatedPages'] = $queryBuilder
-                ->execute()
-                ->fetchAll();
+                ->executeQuery()
+                ->fetchAllAssociative();
         }
 
         if ($row['CType'] === 'menu_subpages') {
@@ -66,8 +66,8 @@ class DrawItem implements PageLayoutViewDrawItemHookInterface
                     $queryBuilder->expr()->in('pid', $queryBuilder->createNamedParameter(explode(',', ((string)$row['pages'] ?: (string)$row['pid'])), Connection::PARAM_INT_ARRAY))
                 );
             $row['subPages'] = $queryBuilder
-                ->execute()
-                ->fetchAll();
+                ->executeQuery()
+                ->fetchAllAssociative();
         }
 
         if ($row['CType'] === 'pageheader') {
@@ -83,8 +83,8 @@ class DrawItem implements PageLayoutViewDrawItemHookInterface
                     $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($row['sys_language_uid']))
                 );
             $row['allPageHeadersOnCurrentPage'] = $queryBuilder
-                ->execute()
-                ->fetchAll();
+                ->executeQuery()
+                ->fetchAllAssociative();
         }
 
         // process bodytext (rte) fields to remove unwanted HTML tags

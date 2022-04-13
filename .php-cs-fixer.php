@@ -1,5 +1,5 @@
 <?php
 
 $config = \TYPO3\CodingStandards\CsFixerConfig::create();
-$config->getFinder()->in('src/extensions');
+$config->getFinder()->in(__DIR__ . '/src/extensions');
 return $config;

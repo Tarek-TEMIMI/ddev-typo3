@@ -48,7 +48,7 @@ class DemoLoginProvider implements LoginProviderInterface
                 $this->queryBuilder->expr()->in('uid', $this->queryBuilder->createNamedParameter($this->allowedUserGroups, Connection::PARAM_INT_ARRAY))
             )
             ->orderBy('uid', QueryInterface::ORDER_DESCENDING)
-            ->execute()
-            ->fetchAll();
+            ->executeQuery()
+            ->fetchAllAssociative();
     }
 }

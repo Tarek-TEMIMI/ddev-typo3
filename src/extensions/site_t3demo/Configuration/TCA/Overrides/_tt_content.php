@@ -19,7 +19,7 @@ $GLOBALS['TCA']['tt_content']['columns']['imageorient']['config']['items'] = [
 $GLOBALS['TCA']['tt_content']['columns']['linkconfig']['config']['items'] = [
     ['LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:cta.linkconfig.I.0', 0],
     ['LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:cta.linkconfig.I.primary', 'primary'],
-    ['LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:cta.linkconfig.I.secondary', 'secondary']
+    ['LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:cta.linkconfig.I.secondary', 'secondary'],
 ];
 
 $GLOBALS['TCA']['tt_content']['columns']['header_layout']['config']['items'] = [
@@ -29,7 +29,7 @@ $GLOBALS['TCA']['tt_content']['columns']['header_layout']['config']['items'] = [
     ['LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:tt_content.header_layout.I.3', '3'],
     ['LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:tt_content.header_layout.I.4', '4'],
     ['LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:tt_content.header_layout.I.5', '5'],
-    ['LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:tt_content.header_layout.I.100', '100']
+    ['LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:tt_content.header_layout.I.100', '100'],
 ];
 
 $GLOBALS['TCA']['tt_content']['types']['menu_pages']['columnsOverrides']['pages']['description'] =

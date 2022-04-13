@@ -6,20 +6,24 @@ all source files to build the website for https://demo.typo3.org.
 ## About the Demo Project
 
 The demo project is a fictitious informational website about apples. It acts as
-a example website for people who never worked with TYPO3, and want to play around
+an example website for people who have never worked with TYPO3, and want to play around
 with the TYPO3 Administration Interface (= TYPO3 Backend).
 
 A special demo login allows creating custom one-time editors without any password.
 
 As soon as one backend user signs in to the TYPO3 Backend, a counter is shown both on the website
-and on the TYPO3 Backend that within 30 minutes, the TYPO3 installation will be re-set
+and on the TYPO3 Backend that within 30 minutes the TYPO3 installation will be re-set
 to the current state.
+
+The demo project also serves as a best practices example for using and setting up TYPO3 as a developer. You are welcome to copy the code for your own projects!
 
 ## Local Development
 
 Requirements:
 
 * DDEV, see [Get Started with DDEV](https://www.ddev.com/get-started/)
+* Composer >= 2.2
+* PHP >= 7.4.1 <= 8.0.99
 
 To set up the TYPO3 Demo Project for local development
 

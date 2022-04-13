@@ -19,7 +19,7 @@ node_modules/
 /var/
 /bin/
 /vendor/
-/.php_cs.cache
+/.php-cs-fixer.cache
 /.env
 
 # Exclude web, but allow TYPO3-specific files

@@ -35,7 +35,7 @@ class PageLayoutHeaderHook
         $view->setTemplate('PageLayout/Header');
         $view->assignMultiple([
             'data' => $pageInfo,
-            'pageUid' => $pageUid
+            'pageUid' => $pageUid,
         ]);
 
         return $view->render();

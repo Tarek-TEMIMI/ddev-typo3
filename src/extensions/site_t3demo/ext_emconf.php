@@ -16,7 +16,7 @@ $EM_CONF[$_EXTKEY] = [
             'depends' =>
                 [
                     'bolt' => '*',
-                    'cta' => '*'
-                ]
-        ]
+                    'cta' => '*',
+                ],
+        ],
 ];

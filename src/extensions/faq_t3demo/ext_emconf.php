@@ -11,5 +11,5 @@ $EM_CONF[$_EXTKEY] = [
     'clearCacheOnLoad' => 1,
     'author_company' => 'b13 GmbH, Stuttgart',
     'version' => '1.0.0',
-    'constraints' => []
+    'constraints' => [],
 ];

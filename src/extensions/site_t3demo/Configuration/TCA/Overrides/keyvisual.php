@@ -9,7 +9,7 @@ defined('TYPO3_MODE') or die();
         'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:CType.keyvisual.name',
         'keyvisual',
         'content-image',
-        'special'
+        'special',
     ]
 );
 
@@ -40,7 +40,7 @@ $GLOBALS['TCA']['tt_content']['types']['keyvisual'] = [
                                         'allowedAspectRatios' => [
                                             '3:2' => [
                                                 'title' => 'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:CType.keyvisual.crop.default.title',
-                                                'value' => 1.5
+                                                'value' => 1.5,
                                             ],
                                         ],
                                         'selectedRatio' => '3:2',
@@ -49,7 +49,7 @@ $GLOBALS['TCA']['tt_content']['types']['keyvisual'] = [
                             ],
                         ],
                     ],
-                    'types' => $GLOBALS['TCA']['sys_file_reference']['defaultTypeConfiguration']['basicImageoverlay']
+                    'types' => $GLOBALS['TCA']['sys_file_reference']['defaultTypeConfiguration']['basicImageoverlay'],
                 ],
             ],
         ],

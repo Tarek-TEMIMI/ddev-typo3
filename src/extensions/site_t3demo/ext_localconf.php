@@ -71,7 +71,7 @@ defined('TYPO3_MODE') or die();
             'b13-demo-content-sync-timer',
             \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
             [
-                'source' => 'EXT:site_t3demo/Resources/Public/Icons/clock.svg'
+                'source' => 'EXT:site_t3demo/Resources/Public/Icons/clock.svg',
             ]
         );
     }

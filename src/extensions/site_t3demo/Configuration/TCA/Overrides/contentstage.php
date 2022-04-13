@@ -9,7 +9,7 @@ defined('TYPO3_MODE') or die();
         'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:CType.contentstage.name',
         'contentstage',
         'content-image',
-        'special'
+        'special',
     ]
 );
 

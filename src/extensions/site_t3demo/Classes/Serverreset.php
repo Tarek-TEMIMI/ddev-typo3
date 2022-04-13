@@ -27,7 +27,7 @@ class Serverreset
     public function nextServerReset(string $content, array $conf): string
     {
         $resetTime = [
-            'resetTime' => (int)GeneralUtility::makeInstance(Registry::class)->get('tx_typo3_demo', 'next_content_sync', '0')
+            'resetTime' => (int)GeneralUtility::makeInstance(Registry::class)->get('tx_typo3_demo', 'next_content_sync', '0'),
         ];
         return json_encode($resetTime, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_UNESCAPED_SLASHES);
     }

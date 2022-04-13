@@ -17,7 +17,7 @@ defined('TYPO3_MODE') or die('Access denied.');
                 'quality' => 90,
                 'os' => '',
                 'exec' => '',
-                'className' => B13\DemoLogin\Service\DemoLoginAuthenticationService::class
+                'className' => B13\DemoLogin\Service\DemoLoginAuthenticationService::class,
             ]
         );
 
@@ -25,7 +25,7 @@ defined('TYPO3_MODE') or die('Access denied.');
             'provider' => \B13\DemoLogin\LoginProvider\DemoLoginProvider::class,
             'sorting' => 90,
             'icon-class' => 'fa-key',
-            'label' => 'LLL:EXT:demologin/Resources/Private/Language/locallang.xlf:login.link'
+            'label' => 'LLL:EXT:demologin/Resources/Private/Language/locallang.xlf:login.link',
         ];
     }
 })();

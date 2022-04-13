@@ -71,7 +71,7 @@ task('php:reload-test', function() {
 
 task('typo3:demo:disablelogin', function() {
     cd('{{release_path}}');
-    run('bin/typo3cms extension:deactivate demologin');
+    run('composer2 remove b13/demologin');
 })->onStage('contentmaster');
 
 task('deploy', [

@@ -15,7 +15,6 @@ namespace B13\DemoLogin\Service;
 use TYPO3\CMS\Core\Authentication\AbstractAuthenticationService;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class DemoLoginAuthenticationService extends AbstractAuthenticationService
@@ -47,7 +46,7 @@ class DemoLoginAuthenticationService extends AbstractAuthenticationService
                     $queryBuilder->createNamedParameter($username . '%')
                 )
             )
-            ->execute()->fetchAll(\PDO::FETCH_COLUMN);
+            ->executeQuery()->fetchOne();
 
         if (empty($usedUsernames)) {
             return '';
@@ -72,17 +71,16 @@ class DemoLoginAuthenticationService extends AbstractAuthenticationService
             'crdate' => $GLOBALS['EXEC_TIME'],
             'username' => $userName,
             'usergroup' => $userGroup,
-            'options' => 3 // options=3 means that both the DB and file mounts should be inherited from the group
+            'options' => 3, // options=3 means that both the DB and file mounts should be inherited from the group
         ], [
             'tstamp' => Connection::PARAM_INT,
             'crdate' => Connection::PARAM_INT,
             'username' => Connection::PARAM_STR,
             'usergroup' => Connection::PARAM_STR,
-            'options' => Connection::PARAM_INT
+            'options' => Connection::PARAM_INT,
         ]);
 
         // and return the user for further processing
-        /** @var QueryBuilder $queryBuilder */
         $queryBuilder = $connection->createQueryBuilder();
         $user = $queryBuilder
             ->select('*')
@@ -90,8 +88,8 @@ class DemoLoginAuthenticationService extends AbstractAuthenticationService
             ->where(
                 $queryBuilder->expr()->eq('username', $queryBuilder->createNamedParameter($userName))
             )
-            ->execute()
-            ->fetch();
+            ->executeQuery()
+            ->fetchAssociative();
         return is_array($user) ? $user : [];
     }
 

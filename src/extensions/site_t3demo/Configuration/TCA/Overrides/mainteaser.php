@@ -9,7 +9,7 @@ defined('TYPO3_MODE') or die();
         'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:CType.mainteaser.name',
         'mainteaser',
         'b13-teaser-image',
-        'special'
+        'special',
     ]
 );
 
@@ -40,7 +40,7 @@ $GLOBALS['TCA']['tt_content']['types']['mainteaser'] = [
                                         'allowedAspectRatios' => [
                                             '2.83:1' => [
                                                 'title' => 'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:CType.mainteaser.crop.default.title',
-                                                'value' => 2.83
+                                                'value' => 2.83,
                                             ],
                                         ],
                                         'selectedRatio' => '2.83:1',
@@ -50,7 +50,7 @@ $GLOBALS['TCA']['tt_content']['types']['mainteaser'] = [
                                         'allowedAspectRatios' => [
                                             '1.07:1' => [
                                                 'title' => 'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:CType.mainteaser.crop.desktop.title',
-                                                'value' => 1.07
+                                                'value' => 1.07,
                                             ],
                                         ],
                                         'selectedRatio' => '1.07:1',
@@ -60,7 +60,7 @@ $GLOBALS['TCA']['tt_content']['types']['mainteaser'] = [
                                         'allowedAspectRatios' => [
                                             '1.81:1' => [
                                                 'title' => 'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:CType.mainteaser.crop.desktop-xl.title',
-                                                'value' => 1.81
+                                                'value' => 1.81,
                                             ],
                                         ],
                                         'selectedRatio' => '1.81:1',
@@ -69,7 +69,7 @@ $GLOBALS['TCA']['tt_content']['types']['mainteaser'] = [
                             ],
                         ],
                     ],
-                    'types' => $GLOBALS['TCA']['sys_file_reference']['defaultTypeConfiguration']['nolinkImageoverlay']
+                    'types' => $GLOBALS['TCA']['sys_file_reference']['defaultTypeConfiguration']['nolinkImageoverlay'],
                 ],
             ],
         ],

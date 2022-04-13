@@ -31,7 +31,7 @@ class PageConfiguration
         self::DOKTYPE_APPLE => 'pagets__Applepage',
         self::DOKTYPE_RECIPE => 'pagets__Recipepage',
         self::DOKTYPE_OVERVIEW => 'pagets__Overviewpage',
-        self::DOKTYPE_FAQPAGE => 'pagets__Faqpage'
+        self::DOKTYPE_FAQPAGE => 'pagets__Faqpage',
     ];
 
     public function getBackendLayout(int $doktype): string

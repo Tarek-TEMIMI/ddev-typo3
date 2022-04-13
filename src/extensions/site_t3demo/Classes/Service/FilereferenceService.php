@@ -32,8 +32,8 @@ class FilereferenceService
                 $queryBuilder->expr()->eq('tablenames', $queryBuilder->createNamedParameter($table)),
                 $queryBuilder->expr()->eq('fieldname', $queryBuilder->createNamedParameter($field))
             )
-            ->execute()
-            ->fetchAll();
+            ->executeQuery()
+            ->fetchAllAssociative();
         foreach ($references as $key => $reference) {
             // add the database record for the original/referenced file
             $queryBuilder = self::getQueryBuilder('sys_file');
@@ -43,8 +43,8 @@ class FilereferenceService
                 ->where(
                     $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($reference['uid_local']))
                 )
-                ->execute()
-                ->fetchAll();
+                ->executeQuery()
+                ->fetchAllAssociative();
             $references[$key]['originalFile'] = $originalFile[0];
             // add the database record for the original file's metadata
             $queryBuilder = self::getQueryBuilder('sys_file_metadata');
@@ -54,8 +54,8 @@ class FilereferenceService
                 ->where(
                     $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($reference['uid_local']))
                 )
-                ->execute()
-                ->fetchAll();
+                ->executeQuery()
+                ->fetchAllAssociative();
             $references[$key]['originalFileMetaData'] = $originalFileMetaData[0];
         }
         return $references;
@@ -75,8 +75,8 @@ class FilereferenceService
                 $queryBuilder->expr()->eq('tablenames', $queryBuilder->createNamedParameter($table)),
                 $queryBuilder->expr()->eq('fieldname', $queryBuilder->createNamedParameter($field))
             )
-            ->execute()
-            ->fetchColumn();
+            ->executeQuery()
+            ->fetchOne();
         return $references;
     }
 

@@ -39,16 +39,16 @@ class DrawItemDefault implements PageLayoutViewDrawItemHookInterface
             $urlParameters = [
                 'edit' => [
                     'tt_content' => [
-                        $row['uid'] => 'edit'
-                    ]
+                        $row['uid'] => 'edit',
+                    ],
                 ],
-                'returnUrl' => GeneralUtility::getIndpEnv('REQUEST_URI') . '#element-tt_content-' . $row['uid']
+                'returnUrl' => GeneralUtility::getIndpEnv('REQUEST_URI') . '#element-tt_content-' . $row['uid'],
             ];
             $uriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
             $url = (string)$uriBuilder->buildUriFromRoute('record_edit', $urlParameters);
             $return = [
                 'url' => htmlspecialchars($url),
-                'title' => htmlspecialchars($this->getLanguageService()->getLL('edit'))
+                'title' => htmlspecialchars($this->getLanguageService()->getLL('edit')),
             ];
             $row['editLink'] = $return;
         }

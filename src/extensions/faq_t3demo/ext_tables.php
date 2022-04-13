@@ -15,7 +15,7 @@ defined('TYPO3_MODE') or die('Access denied!');
             'icon' => 'EXT:faq_t3demo/Resources/Public/Icons/Module.svg',
             'labels' => 'LLL:EXT:faq_t3demo/Resources/Private/Language/locallang_module.xlf',
             'navigationComponentId' => '',
-            'inheritNavigationComponentFromMainModule' => false
+            'inheritNavigationComponentFromMainModule' => false,
         ]
     );
 })();

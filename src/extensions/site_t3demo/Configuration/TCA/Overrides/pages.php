@@ -35,7 +35,7 @@ $GLOBALS['TCA']['pages']['palettes']['infotext'] = [
     'label' => 'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:pages.palettes.infotext.label',
     'showitem' => 'infotext_header,
         --linebreak--,
-        infotext'
+        infotext',
 ];
 
 ExtensionManagementUtility::addToAllTCAtypes(
@@ -60,7 +60,7 @@ foreach ($doktypesToAdd as $item) {
             'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:pages.doktype.' . $item[0],
             $item[1],
             '',
-            $item[2] ?? 'default'
+            'default',
         ]
     );
     $GLOBALS['TCA']['pages']['ctrl']['typeicon_classes'][$item[1]] = 'apps-pagetree-page-default';
@@ -87,7 +87,7 @@ foreach ($doktypesToAdd as $doktype) {
 // remove "Media" and "Abstract" palettes from recipe and apple pages
 foreach ([
     (string)PageConfiguration::DOKTYPE_APPLE,
-    (string)PageConfiguration::DOKTYPE_RECIPE
+    (string)PageConfiguration::DOKTYPE_RECIPE,
 ] as $doktype) {
     $GLOBALS['TCA']['pages']['types'][$doktype]['showitem'] = str_replace('--palette--;;media,', '', $GLOBALS['TCA']['pages']['types'][$doktype]['showitem']);
     $GLOBALS['TCA']['pages']['types'][$doktype]['showitem'] = str_replace('--palette--;;abstract,', '', $GLOBALS['TCA']['pages']['types'][$doktype]['showitem']);
@@ -97,7 +97,7 @@ foreach ([
 foreach ([
     (string)PageConfiguration::DOKTYPE_CONTENTPAGE,
     (string)PageConfiguration::DOKTYPE_STARTPAGE,
-    (string)PageConfiguration::DOKTYPE_OVERVIEW
+    (string)PageConfiguration::DOKTYPE_OVERVIEW,
 ] as $doktype) {
     $GLOBALS['TCA']['pages']['types'][$doktype]['showitem'] = str_replace('--palette--;;media,', '', $GLOBALS['TCA']['pages']['types'][$doktype]['showitem']);
 }
@@ -107,13 +107,13 @@ $GLOBALS['TCA']['pages']['palettes']['teaserdata'] = [
     'label' => 'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:pages.palettes.teaserdata.label',
     'showitem' => 'abstract;LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:pages.abstract.label,
         --linebreak--,
-        media;LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:pages.media.label'
+        media;LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:pages.media.label',
 ];
 
 // add teaser palette to page properties for apples and recipes
 foreach ([
     (string)PageConfiguration::DOKTYPE_APPLE,
-    (string)PageConfiguration::DOKTYPE_RECIPE
+    (string)PageConfiguration::DOKTYPE_RECIPE,
 ] as $doktype) {
     ExtensionManagementUtility::addToAllTCAtypes(
         'pages',
@@ -131,12 +131,12 @@ $GLOBALS['TCA']['pages']['columns']['media']['config']['overrideChildTca']['colu
             'allowedAspectRatios' => [
                 '3:2' => [
                     'title' => 'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:pages.media.crop.default.title',
-                    'value' => 1.5
+                    'value' => 1.5,
                 ],
             ],
             'selectedRatio' => '3:2',
         ],
-    ]
+    ],
 ];
 
 $GLOBALS['TCA']['pages']['columns']['media']['config']['overrideChildTca']['types'] = $GLOBALS['TCA']['sys_file_reference']['defaultTypeConfiguration']['cropImageoverlay'];

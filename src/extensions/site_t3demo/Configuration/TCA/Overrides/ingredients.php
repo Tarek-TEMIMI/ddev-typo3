@@ -9,7 +9,7 @@ defined('TYPO3_MODE') or die();
         'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:CType.ingredients.name',
         'ingredients',
         'content-table',
-        'common'
+        'common',
     ]
 );
 
@@ -24,7 +24,7 @@ $GLOBALS['TCA']['tt_content']['types']['ingredients'] = [
         'bodytext' => [
             'config' => [
                 'enableRichtext' => true,
-                'richtextConfiguration' => 'rteWithTable'
+                'richtextConfiguration' => 'rteWithTable',
             ],
         ],
     ],
