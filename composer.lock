@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "05d3fc8e417ef928d1ac089b0677b43f",
+    "content-hash": "6ed88288a32bc153efc2e7ffc4db2414",
     "packages": [
         {
             "name": "b13/assetcollector",
@@ -110,16 +110,16 @@
         },
         {
             "name": "b13/content-sync",
-            "version": "dev-feature/v11",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/b13/content-sync.git",
-                "reference": "5a459e20209adcd0b59b12c022672d2870e13538"
+                "reference": "c33e7aef0e1ca43f1dbb2b967a4653b15b0d32a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/b13/content-sync/zipball/5a459e20209adcd0b59b12c022672d2870e13538",
-                "reference": "5a459e20209adcd0b59b12c022672d2870e13538",
+                "url": "https://api.github.com/repos/b13/content-sync/zipball/c33e7aef0e1ca43f1dbb2b967a4653b15b0d32a2",
+                "reference": "c33e7aef0e1ca43f1dbb2b967a4653b15b0d32a2",
                 "shasum": ""
             },
             "require": {
@@ -155,9 +155,9 @@
             "homepage": "https://b13.com",
             "support": {
                 "issues": "https://github.com/b13/content-sync/issues",
-                "source": "https://github.com/b13/content-sync/tree/feature/v11"
+                "source": "https://github.com/b13/content-sync/tree/1.1.0"
             },
-            "time": "2021-09-21T12:12:20+00:00"
+            "time": "2022-04-19T10:58:35+00:00"
         },
         {
             "name": "b13/cta",
@@ -8393,7 +8393,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "b13/content-sync": 20,
         "b13/menus": 20
     },
     "prefer-stable": true,
@@ -8405,5 +8404,5 @@
     "platform-overrides": {
         "php": "7.4.12"
     },
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }

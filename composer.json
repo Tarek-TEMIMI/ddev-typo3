@@ -33,7 +33,7 @@
 		"php": "^7.4",
 		"b13/assetcollector": "^1.4",
 		"b13/bolt": "^2.0",
-		"b13/content-sync": "dev-feature/v11",
+		"b13/content-sync": "^1.1",
 		"b13/cta": "^1",
 		"b13/demologin": "*",
 		"b13/faq-t3demo": "*",
