@@ -136,7 +136,7 @@ Get dump for Content Master:
   stage: maintenance
   script:
     - mkdir dump
-    - ssh demo-content@demo01.typo3server.ch "php ./content.demo.typo3.org/current/bin/typo3cms database:export -c Default -e 'cache_*' -e '[bf]e_sessions' -e 'be_users' -e 'sys_log' -e 'sys_history' -e 'sys_refindex' | gzip -9 -c" > ./dump/dump.sql.gz
+    - ssh demo-content@demo01.typo3server.ch -vvv "php ./content.demo.typo3.org/current/bin/typo3cms database:export -c Default -e 'cache_*' -e '[bf]e_sessions' -e 'be_users' -e 'sys_log' -e 'sys_history' -e 'sys_refindex' | gzip -9 -c" > ./dump/dump.sql.gz
     - rsync -avz --exclude='_processed_' demo-content@demo01.typo3server.ch:~/content.demo.typo3.org/shared/web/fileadmin/ ./dump/fileadmin
     - zip -r demo-data.zip dump
     - |

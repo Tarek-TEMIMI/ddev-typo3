@@ -24,6 +24,7 @@ set('writable_dirs', $writeableDirectories);
 
 $exclude = [
     '.composer-cache',
+    'CODE_OF_CONDUCT.md',
     'build',
 ];
 set('rsync', [
