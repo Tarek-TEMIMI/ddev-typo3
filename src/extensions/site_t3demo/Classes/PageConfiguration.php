@@ -23,6 +23,7 @@ class PageConfiguration
     public const DOKTYPE_APPLE = 11;
     public const DOKTYPE_RECIPE = 12;
     public const DOKTYPE_OVERVIEW = 13;
+    public const DOKTYPE_SEARCH = 14;
     public const DOKTYPE_FAQPAGE = 15;
 
     protected array $backendLayoutMapping = [
@@ -31,6 +32,7 @@ class PageConfiguration
         self::DOKTYPE_APPLE => 'pagets__Applepage',
         self::DOKTYPE_RECIPE => 'pagets__Recipepage',
         self::DOKTYPE_OVERVIEW => 'pagets__Overviewpage',
+        self::DOKTYPE_SEARCH => 'pagets__Searchpage',
         self::DOKTYPE_FAQPAGE => 'pagets__Faqpage',
     ];
 

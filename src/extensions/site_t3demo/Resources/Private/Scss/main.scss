@@ -31,6 +31,10 @@
 @import "teaser";
 @import "mainteaser";
 @import "resetbanner";
+@import "search";
+@import "result";
+@import "breadcrumb";
+@import "pagination";
 
 @include media(md) {
 	@include base-md;
@@ -48,6 +52,7 @@
 
 @include media(md, down) {
 	@include resetbanner-md-down;
+	@include result-md-down;
 }
 
 @include media(lg, down) {

@@ -8,6 +8,7 @@ $color-secondary:       #FEB45E;
 $color-alt-2:           #A0E692;
 
 $color-gray-light:      #CDCDCD;
+$color-gray:            #828282;
 $color-gray-dark:       #595959;
 $color-primary-dark:    #870C25;
 $color-secondary-dark:  #CC9144;
@@ -68,3 +69,10 @@ $content-spacing-l:   64px;
 $content-spacing-xl: 128px;
 
 $line-height-meta-menu: 68px;
+
+
+/**
+	Various
+ */
+
+$transition: .3s ease-out;

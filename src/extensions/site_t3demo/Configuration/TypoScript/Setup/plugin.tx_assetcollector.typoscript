@@ -16,4 +16,5 @@ plugin.tx_assetcollector.icons {
   x = EXT:site_t3demo/Resources/Public/Assets/SVGs/x.svg
   check = EXT:site_t3demo/Resources/Public/Assets/SVGs/check.svg
   more = EXT:site_t3demo/Resources/Public/Assets/SVGs/more.svg
+  search = EXT:site_t3demo/Resources/Public/Assets/SVGs/search.svg
 }
