@@ -15,6 +15,15 @@ lib.fluidPage {
       as = startpage
     }
 
+    1658313442 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+    1658313442 {
+      special = list
+      special.value = {$pages.search}
+      levels = 1
+      includeNotInMenu = 1
+      as = searchpage
+    }
+
     1601835042279 = B13\Menus\DataProcessing\TreeMenu
     1601835042279 {
       depth = 2
@@ -55,4 +64,8 @@ lib.fluidPage {
       as = currentpage
     }
   }
+[end]
+
+[siteLanguage("typo3Language") == 'he']
+  lib.fluidPage.settings.hideSearch = 1
 [end]

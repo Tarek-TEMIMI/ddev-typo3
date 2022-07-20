@@ -87,9 +87,6 @@ routes:
     route: google34eb0c66f374609a.html
     type: staticText
     content: 'google-site-verification: google34eb0c66f374609a.html'
-settings:
-  pages:
-    search: 146
 sitePackage: site_t3demo
 solr_enabled_read: true
 solr_host_read: '%env(SOLR_HOST)%'

@@ -1,6 +1,17 @@
 .b_search {
+
+    &--header {
+        position: relative;
+    }
+
     &__input-wrap {
         position: relative;
+    }
+
+    &__header-input-wrap {
+        position: absolute;
+        right: 0;
+        top: 11px;
     }
 
     &__input {
@@ -22,6 +33,22 @@
             outline: none;
             border-color: $color-black;
         }
+
+        &--header {
+            width: 0;
+            padding-left: 36px;
+            border-color: transparent;
+            transition: width $transition, border-color $transition;
+            cursor: pointer;
+
+            &:focus,
+            &:focus-visible {
+                width: 650px;
+                border-color: $color-primary;
+                padding-left: 56px;
+                cursor: unset;
+            }
+        }
     }
 
     &__input-icon {
@@ -31,6 +58,7 @@
         width: 24px;
         height: 24px;
         transform: translateY(-50%);
+        pointer-events: none;
     }
 
     &__highlight {
@@ -42,5 +70,20 @@
         gap: 16px;
         margin-top: 16px;
         font-size: 18px;
+    }
+}
+
+@mixin search-lg-down {
+    .b_search--header {
+        display: none;
+    }
+}
+
+@mixin search-xl {
+    .b_search__input--header {
+        &:focus,
+        &:focus-visible {
+            width: 850px;
+        }
     }
 }

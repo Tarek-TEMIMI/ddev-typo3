@@ -58,6 +58,7 @@
 @include media(lg, down) {
 	@include header-lg-down;
 	@include navi-lg-down;
+    @include search-lg-down;
 }
 
 @include media(lg) {
@@ -80,4 +81,5 @@
 	@include typo3universe-xl;
 	@include keyvisual-xl;
 	@include mainteaser-xl;
+    @include search-xl;
 }

@@ -7,9 +7,7 @@ lib.getPageMediaField {
   }
   renderObj = TEXT
   renderObj {
-    data = FIELD:mediaField
-    wrap = {file:current:|}
-    insertData = 1
+    data.dataWrap = file:current:{FIELD:mediaField}
   }
   maxItems = 1
 }
