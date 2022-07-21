@@ -33,8 +33,11 @@ defined('TYPO3_MODE') or die();
     $iconsToRegister = [
         'b13-teaser-image',
         'apps-pagetree-page-apple',
+        'apps-pagetree-page-apple-hideinmenu',
         'apps-pagetree-page-overview',
+        'apps-pagetree-page-overview-hideinmenu',
         'apps-pagetree-page-recipe',
+        'apps-pagetree-page-recipe-hideinmenu',
     ];
 
     foreach ($iconsToRegister as $icon) {

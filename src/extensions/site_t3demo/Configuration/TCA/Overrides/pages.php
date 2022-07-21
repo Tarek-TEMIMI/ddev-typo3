@@ -44,12 +44,13 @@ ExtensionManagementUtility::addToAllTCAtypes(
                   --palette--;;infotext'
 );
 
+// The third value defines if a custom icon is used
 $doktypesToAdd = [
-    ['apple', PageConfiguration::DOKTYPE_APPLE],
-    ['recipe', PageConfiguration::DOKTYPE_RECIPE],
-    ['startpage', PageConfiguration::DOKTYPE_STARTPAGE],
-    ['overview', PageConfiguration::DOKTYPE_OVERVIEW],
-    ['faqpage', PageConfiguration::DOKTYPE_FAQPAGE],
+    ['apple', PageConfiguration::DOKTYPE_APPLE, true],
+    ['recipe', PageConfiguration::DOKTYPE_RECIPE, true],
+    ['startpage', PageConfiguration::DOKTYPE_STARTPAGE, false],
+    ['overview', PageConfiguration::DOKTYPE_OVERVIEW, true],
+    ['faqpage', PageConfiguration::DOKTYPE_FAQPAGE, false],
 ];
 
 foreach ($doktypesToAdd as $item) {
@@ -59,23 +60,13 @@ foreach ($doktypesToAdd as $item) {
         [
             'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:pages.doktype.' . $item[0],
             $item[1],
-            '',
+            $item[2] ? 'apps-pagetree-page-' . $item[0] : '',
             'default',
         ]
     );
-    $GLOBALS['TCA']['pages']['ctrl']['typeicon_classes'][$item[1]] = 'apps-pagetree-page-default';
-    $GLOBALS['TCA']['pages']['ctrl']['typeicon_classes'][$item[1] . '-hideinmenu'] = 'apps-pagetree-page-hideinmenu';
+    $GLOBALS['TCA']['pages']['ctrl']['typeicon_classes'][$item[1]] = $item[2] ? 'apps-pagetree-page-' . $item[0] : 'apps-pagetree-page-default';
+    $GLOBALS['TCA']['pages']['ctrl']['typeicon_classes'][$item[1] . '-hideinmenu'] = $item[2] ? 'apps-pagetree-page-' . $item[0] . '-hideinmenu' : 'apps-pagetree-page-hideinmenu';
     $GLOBALS['TCA']['pages']['ctrl']['typeicon_classes'][$item[1] . '-root'] = 'apps-pagetree-page-domain';
-}
-
-$doktypesWithCustomIcons = [
-    ['apple', PageConfiguration::DOKTYPE_APPLE],
-    ['recipe', PageConfiguration::DOKTYPE_RECIPE],
-    ['overview', PageConfiguration::DOKTYPE_OVERVIEW],
-];
-
-foreach ($doktypesWithCustomIcons as $item) {
-    $GLOBALS['TCA']['pages']['ctrl']['typeicon_classes'][$item[1]] = 'apps-pagetree-page-' . $item[0];
 }
 
 // we use the doktype configuration for default page "1" as a basis for our customization

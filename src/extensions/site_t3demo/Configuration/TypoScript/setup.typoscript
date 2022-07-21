@@ -6,6 +6,7 @@
 
 @import 'EXT:site_t3demo/Configuration/TypoScript/Setup/lib.fluidPage.typoscript'
 @import 'EXT:site_t3demo/Configuration/TypoScript/Setup/lib.parseFunc_RTE.typoscript'
+@import 'EXT:site_t3demo/Configuration/TypoScript/Setup/module.tx_dashboard.typoscript'
 @import 'EXT:site_t3demo/Configuration/TypoScript/Setup/plugin.tx_assetcollector.typoscript'
 @import 'EXT:site_t3demo/Configuration/TypoScript/Setup/plugin.tx_picture.typoscript'
 @import 'EXT:site_t3demo/Configuration/TypoScript/Setup/plugin.tx_felogin.typoscript'
