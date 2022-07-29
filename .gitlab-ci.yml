@@ -82,7 +82,7 @@ build:php:
     GIT_STRATEGY: none
     TARGET_HOSTS: ""
   script:
-    - composer global require deployer/deployer deployer/recipes --dev $composer_options
+    - composer global require deployer/deployer:6.8.0 deployer/recipes:6.2.2 --dev $composer_options
     - /tmp/vendor/bin/dep --file=./build/deploy.php deploy -vv --hosts=${TARGET_HOSTS}
 
 
