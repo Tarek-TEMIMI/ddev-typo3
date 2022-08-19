@@ -54,7 +54,7 @@ languages:
     fallbacks: ''
     solr_core_read: core_de
   -
-    title: Hebrew
+    title: 'עִברִית'
     enabled: true
     base: /he/
     typo3Language: he

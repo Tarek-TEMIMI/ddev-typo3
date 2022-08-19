@@ -10,6 +10,36 @@
         grid-template-columns: 45px 1fr 45px;
     }
 
+    &__logolinkwrapper {
+        text-align: center;
+        height: 48px;
+    }
+
+    &__logolink {
+        margin-top: 12px;
+        display: inline-block;
+        height: 48px;
+        width: 48px;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__logo {
+        height: 32px;
+        width: 32px;
+        fill: $color-black;
+
+        #{$self}__logolink:hover & {
+            fill: $color-primary;
+        }
+    }
+
+    &__meta {
+        display: none;
+    }
+
     &__logolinkwrapper,
     &__searchlinkwrapper {
         text-align: center;
@@ -98,6 +128,7 @@
             white-space: nowrap;
             margin-top: 16px;
             margin-inline-start: $content-spacing-s;
+<<<<<<< HEAD
         }
 
         &__login {
@@ -106,6 +137,16 @@
 
         &__searchlinkwrapper {
             display: none;
+=======
+
+            &--contentcontainer {
+                margin-top: 24px;
+            }
+        }
+
+        &__login {
+            display: inline-block;
+>>>>>>> main
         }
     }
 }
