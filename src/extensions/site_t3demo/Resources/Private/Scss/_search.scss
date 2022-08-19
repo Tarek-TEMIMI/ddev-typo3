@@ -11,7 +11,7 @@
     &__header-input-wrap {
         position: absolute;
         right: 0;
-        top: 11px;
+        top: 14px;
     }
 
     &__input {
@@ -43,7 +43,7 @@
 
             &:focus,
             &:focus-visible {
-                width: 650px;
+                width: 680px;
                 border-color: $color-primary;
                 padding-left: 56px;
                 cursor: unset;
@@ -83,7 +83,7 @@
     .b_search__input--header {
         &:focus,
         &:focus-visible {
-            width: 850px;
+            width: 900px;
         }
     }
 }

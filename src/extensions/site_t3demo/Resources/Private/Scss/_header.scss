@@ -128,16 +128,6 @@
             white-space: nowrap;
             margin-top: 16px;
             margin-inline-start: $content-spacing-s;
-<<<<<<< HEAD
-        }
-
-        &__login {
-            display: inline;
-        }
-
-        &__searchlinkwrapper {
-            display: none;
-=======
 
             &--contentcontainer {
                 margin-top: 24px;
@@ -146,7 +136,14 @@
 
         &__login {
             display: inline-block;
->>>>>>> main
+        }
+
+        &__login {
+            display: inline;
+        }
+
+        &__searchlinkwrapper {
+            display: none;
         }
     }
 }
