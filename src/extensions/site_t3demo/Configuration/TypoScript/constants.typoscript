@@ -9,6 +9,7 @@ pages {
   profileLinks = 11
   footerMenu = 6
   faqFolder = 36
+  search = 146
 }
 
 b13.snippetRootPath = EXT:site_t3demo/Resources/Private/Snippet

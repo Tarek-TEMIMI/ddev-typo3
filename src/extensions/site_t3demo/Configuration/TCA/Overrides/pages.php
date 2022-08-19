@@ -50,6 +50,7 @@ $doktypesToAdd = [
     ['recipe', PageConfiguration::DOKTYPE_RECIPE, true],
     ['startpage', PageConfiguration::DOKTYPE_STARTPAGE, false],
     ['overview', PageConfiguration::DOKTYPE_OVERVIEW, true],
+    ['search', PageConfiguration::DOKTYPE_SEARCH, false],
     ['faqpage', PageConfiguration::DOKTYPE_FAQPAGE, false],
 ];
 
@@ -89,6 +90,7 @@ foreach ([
     (string)PageConfiguration::DOKTYPE_CONTENTPAGE,
     (string)PageConfiguration::DOKTYPE_STARTPAGE,
     (string)PageConfiguration::DOKTYPE_OVERVIEW,
+    (string)PageConfiguration::DOKTYPE_SEARCH,
 ] as $doktype) {
     $GLOBALS['TCA']['pages']['types'][$doktype]['showitem'] = str_replace('--palette--;;media,', '', $GLOBALS['TCA']['pages']['types'][$doktype]['showitem']);
 }

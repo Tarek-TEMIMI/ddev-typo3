@@ -13,6 +13,13 @@ mysql_version: ""
 provider: default
 use_dns_when_possible: true
 composer_version: ""
+web_environment:
+  - SOLR_HOST=ddev-demo.typo3.org-solr
+typo3_solr_cores:
+  - { name: core_en, schema: "english/schema.xml" }
+  - { name: core_de, schema: "german/schema.xml" }
+typo3_solr_ext_path: 'web/typo3conf/ext/solr/Resources/Private/Solr/'
+typo3_solr_configset: 'ext_solr_11_5_0'
 hooks:
   pre-pull:
     - exec: "mkdir -p ./.ddev/typo3-demo-data"
@@ -21,6 +28,21 @@ hooks:
   post-pull:
     - exec: "rm -Rf ./.ddev/typo3-demo-data"
     - exec: "bin/typo3cms database:updateschema"
+  post-start:
+    - exec-host: composer install
+    - exec: |
+        SOLR_EXT_PATH=(`yq e '.typo3_solr_ext_path' .ddev/config.yaml`)
+        cp -r ${SOLR_EXT_PATH}solr.xml .ddev/solr/
+        cp -r ${SOLR_EXT_PATH}configsets .ddev/solr/
+
+        CONFIGSET=(`yq e '.typo3_solr_configset' .ddev/config.yaml`)
+        NAME=(`yq e '.typo3_solr_cores.[].name' .ddev/config.yaml`)
+        SCHEMA=(`yq e '.typo3_solr_cores.[].schema' .ddev/config.yaml`)
+
+        length=${#NAME[@]}
+        for (( i = 0; i < length; i++ )); do
+          curl -s -o /dev/null "http://solr:8983/solr/admin/cores?action=CREATE&name=${NAME[$i]}&configSet=${CONFIGSET}&schema=${SCHEMA[$i]}&dataDir=data/"
+        done
 
 # This config.yaml was created with ddev version v1.16.0
 # webimage: drud/ddev-webserver:v1.16.0

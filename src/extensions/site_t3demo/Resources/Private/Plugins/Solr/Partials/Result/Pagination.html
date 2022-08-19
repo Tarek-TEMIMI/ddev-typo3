@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      xmlns:s="http://typo3.org/ns/ApacheSolrForTypo3/Solr/ViewHelpers"
+      xmlns:ac="http://typo3.org/ns/B13/Assetcollector/ViewHelpers"
+      data-namespace-typo3-fluid="true"
+>
+<f:if condition="{pagination.LastPageNumber} > 1">
+    <nav class="b_pagination">
+        <f:if condition="{pagination.previousPageNumber}">
+            <a class="b_pagination__item"
+               href="{s:uri.paginate.resultPage(page: pagination.previousPageNumber)}">
+                <ac:svg name="arrow-left" class="b_pagination__arrow"/>
+            </a>
+        </f:if>
+
+        <f:if condition="{pagination.hasLessPages}">
+            <span>...</span>
+        </f:if>
+
+        <f:for each="{pagination.allPageNumbers}" as="page">
+            <f:if condition="{page} == {currentPage}">
+                <f:then>
+                    <span class="b_pagination__item b_pagination__item--active">{page}</span>
+                </f:then>
+                <f:else>
+                    <f:if condition="{page} > 1">
+                        <f:then>
+                            <a class="b_pagination__item" href="{s:uri.paginate.resultPage(page: page)}">{page}</a>
+                        </f:then>
+                        <f:else>
+                            <a class="b_pagination__item" href="{s:uri.paginate.resultPage()}">{page}</a>
+                        </f:else>
+                    </f:if>
+                </f:else>
+            </f:if>
+        </f:for>
+
+        <f:if condition="{pagination.hasMorePages}">
+            <span>...</span>
+        </f:if>
+
+        <f:if condition="{pagination.nextPageNumber}">
+            <a class="b_pagination__item"
+               href="{s:uri.paginate.resultPage(page: pagination.nextPageNumber)}">
+                <ac:svg name="arrow-right" class="b_pagination__arrow"/>
+            </a>
+        </f:if>
+    </nav>
+</f:if>
+</html>

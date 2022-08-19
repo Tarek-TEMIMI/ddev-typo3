@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+    xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+    xmlns:s="http://typo3.org/ns/ApacheSolrForTypo3/Solr/ViewHelpers"
+    xmlns:i="http://typo3.org/ns/B13/Picture/ViewHelpers"
+    xmlns:ac="http://typo3.org/ns/B13/Assetcollector/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<div class="b_result">
+    <f:render partial="Result/Breadcrumb" arguments="{pageUid: document.uid}"/>
+    <a href="{document.url}" class="b_result__link">
+        <f:if condition="{document.media_intS} > 0">
+            {f:cObject(typoscriptObjectPath: 'lib.getPageMediaField', data: {pageUid: document.uid, mediaField: 'uid'}) -> f:variable(name: 'mediaUid')}
+            {f:cObject(typoscriptObjectPath: 'lib.getPageMediaField', data: {pageUid: document.uid, mediaField: 'copyright'}) -> f:variable(name: 'mediaCopyright')}
+
+            <figure class="b_result__figure">
+                <div class="b_result__imgwrap">
+                    <i:image src="{mediaUid}" treatIdAsReference="1" width="280c" height="184c" class="b_result__img"/>
+                </div>
+                <f:if condition="{mediaCopyright}">
+                    <figcaption class="b_result__caption">
+                        <ac:svg name="camera" class="b_tm__caption-icon" additionalAttributes="{aria-hidden: 'true'}"/>
+                        &copy; {mediaCopyright}
+                    </figcaption>
+                </f:if>
+            </figure>
+        </f:if>
+        <div class="b_result__text">
+            <h4>{document.title}</h4>
+            <p class="b_result__content">{s:document.highlightResult(resultSet:resultSet, document:document, fieldName:'content')}</p>
+        </div>
+    </a>
+</div>
+
+</html>

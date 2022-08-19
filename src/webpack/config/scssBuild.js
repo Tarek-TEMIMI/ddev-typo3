@@ -1,6 +1,6 @@
 const
 	fs = require('fs'),
-	sass = require('node-sass'),
+	sass = require('sass'),
 	mkdirp = require('mkdirp'),
 	path = require('path'),
 	getDirName = require('path').dirname,

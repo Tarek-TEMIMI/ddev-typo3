@@ -5,9 +5,10 @@
 
 <f:render section="DropIn/Before" optional="true" />
 
-<f:render partial="Header" arguments="{mainMenu: mainMenu, languageMenu: languageMenu, startpage: startpage, currentpage: currentpage}" />
+<f:render partial="Header" arguments="{mainMenu: mainMenu, languageMenu: languageMenu, startpage: startpage, currentpage: currentpage, searchpage: searchpage}" />
 
 <main>
+    <!-- TYPO3SEARCH_begin -->
 	<f:render section="Stage" optional="true">
 		<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.hasContent', data: '{colPos: 1}')}">
 			<div class="b_page__stage">
@@ -25,6 +26,7 @@
 			</div>
 		</f:if>
 	</f:render>
+    <!-- TYPO3SEARCH_end -->
 
 	<f:render section="Teaser" optional="true">
 		<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.hasContent', data: '{colPos: 2}')}">
@@ -35,7 +37,6 @@
 			</div>
 		</f:if>
 	</f:render>
-
 </main>
 
 <f:render partial="Footer" arguments="{footerMenu: footerMenu, profileLinks: profileLinks}"/>
