@@ -91,7 +91,7 @@ sitePackage: site_t3demo
 solr_enabled_read: true
 solr_host_read: '%env(SOLR_HOST)%'
 solr_path_read: /
-solr_port_read: '8983'
-solr_scheme_read: http
+solr_port_read: '%env(SOLR_PORT)%'
+solr_scheme_read: '%env(SOLR_SCHEME)%'
 solr_use_write_connection: false
 websiteTitle: ''
