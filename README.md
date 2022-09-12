@@ -39,6 +39,9 @@ To set up the TYPO3 Demo Project for local development
 7. Create a backend user `ddev typo3cms backend:createadmin username password`
 8. Start the project running `ddev start`
 
+## Reset feature
+For technical documentation see https://docs.google.com/document/d/1oRHFK35haOP0oXyO6H1Ufe7r3VKnuA6iZe6ua8jPefU/ (please contact us via Slack channel #cig-typo3-demo)
+
 ## License
 
 All code is licensed under GPL2+. All content and graphical creations are licensed under
