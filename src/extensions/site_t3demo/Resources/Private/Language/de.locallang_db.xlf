@@ -155,14 +155,6 @@
 				<source>Table for listing ingredients.</source>
 				<target>Tabelle mit Auflistung dfer Zutaten.</target>
 			</trans-unit>
-			<trans-unit id="CType.textpic.name" resname="CType.textpic.name">
-				<source>Text w/ Image</source>
-				<target>Text mit Bild</target>
-			</trans-unit>
-			<trans-unit id="CType.textpic.description" resname="CType.textpic.description">
-				<source>An image wrapped around a regular text element.</source>
-				<target>Ein Bild mit umfließendem Text.</target>
-			</trans-unit>
 			<trans-unit id="CType.keyvisual.name" resname="CType.keyvisual.name">
 				<source>Keyvisual</source>
 				<target>Keyvisual</target>

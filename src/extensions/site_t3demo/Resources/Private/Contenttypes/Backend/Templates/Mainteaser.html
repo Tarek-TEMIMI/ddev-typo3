@@ -1,0 +1,19 @@
+<html
+	data-namespace-typo3-fluid="true"
+>
+
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <f:render partial="ImagesWithCropVariants" arguments="{images: allImages, cropVariants: '{0: \'default\', 1: \'desktop\', 2: \'desktop-xl\'}'}" />
+
+    <f:render partial="Text" arguments="{text: bodytext}" />
+    <f:render partial="Link" arguments="{link: link, linklabel: linklabel}" />
+
+    <f:render partial="Warning/NoImage" arguments="{images: allImages-visible, hidden: hidden}" />
+    <f:render partial="Warning/FirstImage" arguments="{images: allImages-visible, hidden: hidden}" />
+</f:section>
+
+</html>
+
+

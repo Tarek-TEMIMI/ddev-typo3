@@ -63,41 +63,15 @@ class DrawItem implements PageLayoutViewDrawItemHookInterface
                 ->select('*')
                 ->from('pages')
                 ->where(
-                    $queryBuilder->expr()->in('pid', $queryBuilder->createNamedParameter(explode(',', ((string)$row['pages'] ?: (string)$row['pid'])), Connection::PARAM_INT_ARRAY))
+                    $queryBuilder->expr()->in('pid', $queryBuilder->createNamedParameter(explode(',', ((string)$row['pages'] ?: (string)$row['pid'])), Connection::PARAM_INT_ARRAY)),
+                    $queryBuilder->expr()->eq(
+                        'sys_language_uid',
+                        $queryBuilder->createNamedParameter($row['sys_language_uid'])
+                    )
                 );
             $row['subPages'] = $queryBuilder
                 ->executeQuery()
                 ->fetchAllAssociative();
-        }
-
-        if ($row['CType'] === 'pageheader') {
-            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
-                ->getQueryBuilderForTable('tt_content');
-            $queryBuilder
-                ->select('uid')
-                ->from('tt_content')
-                ->orderBy('sorting')
-                ->where(
-                    $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($row['pid'])),
-                    $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('pageheader')),
-                    $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter($row['sys_language_uid']))
-                );
-            $row['allPageHeadersOnCurrentPage'] = $queryBuilder
-                ->executeQuery()
-                ->fetchAllAssociative();
-        }
-
-        // process bodytext (rte) fields to remove unwanted HTML tags
-        $listOfCTypesToProcess = [
-            'text',
-            'textpic',
-            'textmedia',
-            'keyvisual',
-        ];
-        if (in_array($row['CType'], $listOfCTypesToProcess)) {
-            if ($row['bodytext']) {
-                $row['bodytext_processed'] = $parentObject->renderText($row['bodytext']);
-            }
         }
     }
 }

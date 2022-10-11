@@ -20,7 +20,7 @@ $GLOBALS['TCA']['tt_content']['types']['keyvisual'] = [
         header,
         bodytext,
         image,
-        --palette--;;linklabelconfig,
+        --palette--;;linklabel,
         ' . $GLOBALS['TCA']['tt_content']['defaultTypeConfiguration']['end'],
     'columnsOverrides' => [
         'bodytext' => [
