@@ -13,6 +13,10 @@ mysql_version: ""
 provider: default
 use_dns_when_possible: true
 composer_version: ""
+web_environment:
+  - TYPO3_CONTEXT=Development/DDEV
+  - TYPO3_ENCRYPTION_KEY=a-random-encryption-key
+  - TYPO3_INSTALLER_PASSWORD=joh316
 hooks:
   pre-pull:
     - exec: "mkdir -p ./.ddev/typo3-demo-data"
