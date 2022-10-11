@@ -45,6 +45,10 @@ hooks:
         for (( i = 0; i < length; i++ )); do
           curl -s -o /dev/null "http://solr:8983/solr/admin/cores?action=CREATE&name=${NAME[$i]}&configSet=${CONFIGSET}&schema=${SCHEMA[$i]}&dataDir=data/"
         done
+  post-import-db:
+    - exec: |
+        bin/typo3cms database:updateschema
+        bin/typo3cms cache:flush
 
 # This config.yaml was created with ddev version v1.16.0
 # webimage: drud/ddev-webserver:v1.16.0
