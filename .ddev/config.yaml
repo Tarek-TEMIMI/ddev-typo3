@@ -21,6 +21,10 @@ hooks:
   post-pull:
     - exec: "rm -Rf ./.ddev/typo3-demo-data"
     - exec: "bin/typo3cms database:updateschema"
+  post-import-db:
+    - exec: |
+        bin/typo3cms database:updateschema
+        bin/typo3cms cache:flush
 
 # This config.yaml was created with ddev version v1.16.0
 # webimage: drud/ddev-webserver:v1.16.0
