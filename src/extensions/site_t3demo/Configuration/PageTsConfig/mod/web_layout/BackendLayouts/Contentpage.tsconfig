@@ -2,6 +2,7 @@ mod.web_layout.BackendLayouts.Contentpage {
   title = LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:backendlayout.contentpage.title
   config {
     backend_layout {
+      doktype = 1
       colCount = 1
       rowCount = 2
       rows {
