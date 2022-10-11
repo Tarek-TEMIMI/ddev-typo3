@@ -32,7 +32,6 @@ class PageConfiguration
         self::DOKTYPE_APPLE => 'pagets__Applepage',
         self::DOKTYPE_RECIPE => 'pagets__Recipepage',
         self::DOKTYPE_OVERVIEW => 'pagets__Overviewpage',
-        self::DOKTYPE_SEARCH => 'pagets__Searchpage',
         self::DOKTYPE_FAQPAGE => 'pagets__Faqpage',
     ];
 
