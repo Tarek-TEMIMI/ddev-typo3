@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ed88288a32bc153efc2e7ffc4db2414",
+    "content-hash": "4a94d0580dca8cb7dc82402a3ee25300",
     "packages": [
         {
             "name": "b13/assetcollector",
@@ -199,7 +199,7 @@
         },
         {
             "name": "b13/demologin",
-            "version": "dev-main",
+            "version": "dev-#76",
             "dist": {
                 "type": "path",
                 "url": "src/extensions/demologin",
@@ -229,7 +229,7 @@
         },
         {
             "name": "b13/faq-t3demo",
-            "version": "dev-main",
+            "version": "dev-#76",
             "dist": {
                 "type": "path",
                 "url": "src/extensions/faq_t3demo",
@@ -344,7 +344,7 @@
         },
         {
             "name": "b13/site-t3demo",
-            "version": "dev-main",
+            "version": "dev-#76",
             "dist": {
                 "type": "path",
                 "url": "src/extensions/site_t3demo",
@@ -1908,6 +1908,73 @@
                 "source": "https://github.com/IchHabRecht/content_defender/tree/3.2.1"
             },
             "time": "2021-11-10T16:31:30+00:00"
+        },
+        {
+            "name": "ichhabrecht/filefill",
+            "version": "4.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/IchHabRecht/filefill.git",
+                "reference": "3265d87062c6c7845ce988ddbf8c25098632e016"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/IchHabRecht/filefill/zipball/3265d87062c6c7845ce988ddbf8c25098632e016",
+                "reference": "3265d87062c6c7845ce988ddbf8c25098632e016",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0",
+                "typo3/cms-core": "^10.4.11 || ^11.5"
+            },
+            "replace": {
+                "typo3-ter/filefill": "self.version"
+            },
+            "require-dev": {
+                "nimut/testing-framework": "6.x-dev"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "4.x-dev"
+                },
+                "typo3/cms": {
+                    "extension-key": "filefill",
+                    "cms-package-dir": "{$vendor-dir}/typo3/cms",
+                    "app-dir": ".Build",
+                    "web-dir": ".Build/public"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "IchHabRecht\\Filefill\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Nicole Cordes",
+                    "email": "typo3@cordes.co",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Find and fetch missing local files from different remotes",
+            "homepage": "https://github.com/IchHabRecht/filefill",
+            "keywords": [
+                "extension",
+                "file",
+                "missing",
+                "placeholder",
+                "typo3"
+            ],
+            "support": {
+                "issues": "https://github.com/IchHabRecht/filefill/issues",
+                "source": "https://github.com/IchHabRecht/filefill/tree/4.1.1"
+            },
+            "time": "2022-05-05T16:24:54+00:00"
         },
         {
             "name": "lolli42/finediff",
