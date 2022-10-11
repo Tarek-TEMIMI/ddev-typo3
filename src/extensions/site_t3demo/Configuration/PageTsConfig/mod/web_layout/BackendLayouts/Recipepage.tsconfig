@@ -2,6 +2,7 @@ mod.web_layout.BackendLayouts.Recipepage {
   title = LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:backendlayout.recipepage.title
   config {
     backend_layout {
+      doktype = 12
       colCount = 1
       rowCount = 3
       rows {

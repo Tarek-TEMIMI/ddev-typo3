@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ed88288a32bc153efc2e7ffc4db2414",
+    "content-hash": "49325dbfc1103850a10d64c4d75a23d6",
     "packages": [
         {
             "name": "b13/assetcollector",
@@ -226,6 +226,58 @@
             "transport-options": {
                 "relative": true
             }
+        },
+        {
+            "name": "b13/doktypemapper",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/b13/doktypemapper.git",
+                "reference": "7c58af50002607029832fd6029dee6376c900fcb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/b13/doktypemapper/zipball/7c58af50002607029832fd6029dee6376c900fcb",
+                "reference": "7c58af50002607029832fd6029dee6376c900fcb",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ~8.0",
+                "typo3/cms-backend": "^10.4 || ^11.5",
+                "typo3/cms-core": "^10.4 || ^11.5"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.12.11",
+                "phpunit/phpunit": "^8.4",
+                "typo3/coding-standards": "^0.5",
+                "typo3/tailor": "^1.0",
+                "typo3/testing-framework": "^6"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "doktypemapper",
+                    "cms-package-dir": "{$vendor-dir}/typo3/cms",
+                    "app-dir": ".Build",
+                    "web-dir": ".Build/Web"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "B13\\Doktypemapper\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Maps your page.doktype to page.backend_layout",
+            "homepage": "https://b13.com",
+            "support": {
+                "issues": "https://github.com/b13/doktypemapper/issues",
+                "source": "https://github.com/b13/doktypemapper/tree/1.0.0"
+            },
+            "time": "2022-07-04T14:29:07+00:00"
         },
         {
             "name": "b13/faq-t3demo",
