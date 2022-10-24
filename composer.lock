@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ebc5b454e7b731b06c72a02e0a48d622",
+    "content-hash": "2e9cb54b69f268ee99a60e07a5d06431",
     "packages": [
         {
             "name": "b13/assetcollector",
@@ -51,6 +51,48 @@
                 "source": "https://github.com/b13/assetcollector/tree/1.5.2"
             },
             "time": "2022-01-03T11:56:32+00:00"
+        },
+        {
+            "name": "b13/backendpreviews",
+            "version": "0.1.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/b13/backendpreviews.git",
+                "reference": "7c76894ef157a4cfddfd97c61022c98c69a0ad5a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/b13/backendpreviews/zipball/7c76894ef157a4cfddfd97c61022c98c69a0ad5a",
+                "reference": "7c76894ef157a4cfddfd97c61022c98c69a0ad5a",
+                "shasum": ""
+            },
+            "require": {
+                "typo3/cms-backend": "^9.5 || ^10.4 || ^11.5"
+            },
+            "suggest": {
+                "b13/listelements": "*"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "backendpreviews"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "B13\\Backendpreviews\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Enhanced Fluid based backend element previews",
+            "support": {
+                "issues": "https://github.com/b13/backendpreviews/issues",
+                "source": "https://github.com/b13/backendpreviews/tree/0.1.18"
+            },
+            "time": "2022-09-08T07:50:27+00:00"
         },
         {
             "name": "b13/bolt",

@@ -32,6 +32,7 @@
 	"require": {
 		"php": "^7.4",
 		"b13/assetcollector": "^1.4",
+		"b13/backendpreviews": "^0.1.18",
 		"b13/bolt": "^2.0",
 		"b13/content-sync": "^1.1",
 		"b13/cta": "^1",

@@ -1,0 +1,39 @@
+<html
+	data-namespace-typo3-fluid="true"
+>
+
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <f:render partial="Images" arguments="{images: allImages}" />
+    <f:render partial="Text" arguments="{text: bodytext}" />
+    <f:render partial="Link" arguments="{link: link, linklabel: linklabel}" />
+
+    <f:render partial="Warning/NoImage" arguments="{images: allImages-visible, hidden: hidden}" />
+    <f:render partial="Warning/FirstImage" arguments="{images: allImages-visible, hidden: hidden}" />
+</f:section>
+
+</html>
+
+
+<!--
+<div class="b_listgroup">
+        <f:for each="{allImages}" as="image">
+            <div class="b_tiles">
+                <f:render partial="ImagesWithCropVariants"
+                          arguments="{images: '{0: image}', cropVariants: '{0: \'default\', 1: \'desktop\', 2: \'desktop-xl\'}'}" />
+
+                <div class="b_text">
+                    <f:if condition="{image.description}">
+                        <f:then>
+                            {image.description}
+                        </f:then>
+                        <f:else if="{image.originalFileMetaData.description}">
+                            {image.originalFileMetaData.description}
+                        </f:else>
+                    </f:if>
+                </div>
+            </div>
+        </f:for>
+    </div>
+-->
