@@ -1,0 +1,21 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:ac="http://typo3.org/ns/B13/Assetcollector/ViewHelpers"
+    xmlns:b13="http://typo3.org/ns/B13/SiteT3demo/ViewHelpers"
+>
+
+<f:if condition="{pageUid}">
+    <div class="b_breadcrumb">
+        <f:for each="{b13:rootline(pageUid: pageUid)}" as="page" iteration="i" reverse="true">
+            <f:link.typolink parameter="{page.uid}" class="b_breadcrumb__item">
+                {page.title}
+            </f:link.typolink>
+            <f:if condition="!{i.isLast}">
+                <ac:svg name="arrow-right" class="b_breadcrumb__icon" additionalAttributes="{aria-hidden: 'true'}"/>
+            </f:if>
+        </f:for>
+    </div>
+</f:if>
+
+</html>

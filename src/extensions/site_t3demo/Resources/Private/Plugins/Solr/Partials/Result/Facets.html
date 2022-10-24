@@ -1,0 +1,22 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:s="http://typo3.org/ns/ApacheSolrForTypo3/Solr/ViewHelpers"
+>
+<f:if condition="{facet.isAvailable}">
+    <div class="b_search__facets">
+        <a href="{s:uri.facet.removeAllFacets()}"
+           class="b_button {f:if(condition: facet.isUsed, then: 'b_button--inactive')}">
+            {f:translate(key: 'search.facet.all', extensionName: 'site_t3demo')}
+        </a>
+
+        <f:for each="{facet.options}" as="option">
+            <a href="{s:uri.facet.setFacetItem(facet: facet, facetItem: option)}"
+               class="b_button {f:if(condition: option.selected, else: 'b_button--inactive')}">
+                {f:translate(key: 'search.facet.{option.label}', extensionName: 'site_t3demo')}
+            </a>
+        </f:for>
+    </div>
+</f:if>
+
+</html>

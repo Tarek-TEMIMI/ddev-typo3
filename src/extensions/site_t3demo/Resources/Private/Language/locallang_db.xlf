@@ -49,6 +49,9 @@
 			<trans-unit id="backendlayout.faqpage.title" resname="backendlayout.faqpage.title">
 				<source>FAQ Page</source>
 			</trans-unit>
+			<trans-unit id="backendlayout.search.title" resname="backendlayout.search.title">
+				<source>Search</source>
+			</trans-unit>
 			<trans-unit id="backendlayout.stage.name" resname="backendlayout.stage.name">
 				<source>Stage Content</source>
 			</trans-unit>
@@ -81,6 +84,9 @@
 			</trans-unit>
 			<trans-unit id="pages.doktype.faqpage" resname="pages.doktype.faqpage">
 				<source>FAQ Page</source>
+			</trans-unit>
+			<trans-unit id="pages.doktype.search" resname="pages.doktype.search">
+				<source>Search</source>
 			</trans-unit>
 			<trans-unit id="pages.palettes.teaserdata.label" resname="pages.palettes.teaserdata.label">
 				<source>Teaser Data</source>

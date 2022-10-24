@@ -40,7 +40,40 @@
         display: none;
     }
 
+    &__logolinkwrapper,
+    &__searchlinkwrapper {
+        text-align: center;
+        height: 48px;
+    }
 
+    &__logolink,
+    &__searchlink {
+        margin-top: 12px;
+        display: inline-block;
+        height: 48px;
+        width: 48px;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__logo,
+    &__searchlink-logo {
+        height: 32px;
+        width: 32px;
+        fill: $color-black;
+        transition: fill $transition;
+
+        #{$self}__logolink:hover &,
+        #{$self}__searchlink:hover & {
+            fill: $color-primary;
+        }
+    }
+
+    &__meta {
+        display: none;
+    }
 }
 
 @mixin header-lg-down {
@@ -103,6 +136,14 @@
 
         &__login {
             display: inline-block;
+        }
+
+        &__login {
+            display: inline;
+        }
+
+        &__searchlinkwrapper {
+            display: none;
         }
     }
 }

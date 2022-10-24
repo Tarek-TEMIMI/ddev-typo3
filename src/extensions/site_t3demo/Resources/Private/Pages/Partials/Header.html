@@ -27,6 +27,13 @@
 				<ac:svg name="logo" class="b_header__logo" additionalAttributes="{aria-hidden: 'true'}"/>
 			</a>
 		</span>
+        <f:if condition="!{settings.hideSearch} && {searchpage}">
+            <div class="b_header__searchlinkwrapper">
+                <a href="{searchpage.0.link}" class="b_header__searchlink" aria-label="{searchpage.0.title}">
+                    <ac:svg name="search" class="b_header__searchlink-logo" additionalAttributes="{aria-hidden: 'true'}"/>
+                </a>
+            </div>
+        </f:if>
 
 		<input type="radio" name="mainnavi" checked class="b_pseudo" id="submenu-0"/>
 		<ul class="b_navi">
@@ -73,7 +80,15 @@
 				</li>
 			</f:for>
 		</ul>
-
+        <f:if condition="!{settings.hideSearch} && {searchpage}">
+            <form action="{searchpage.0.link}" class="b_search b_search--header">
+                <label class="b_search__header-input-wrap">
+                    <input type="search" name="q" value="{q}" class="b_search__input b_search__input--header" autocomplete="off"
+                           placeholder="{f:translate(key: 'search.placeholder', extensionName: 'site_t3demo')}"/>
+                    <ac:svg name="search" class="b_search__input-icon"/>
+                </label>
+            </form>
+        </f:if>
 		<div class="b_header__meta b_header__meta--contentcontainer">
 			<f:if condition="{languageMenu}">
                 <div class="b_langswitch__trigger">

@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      xmlns:s="http://typo3.org/ns/ApacheSolrForTypo3/Solr/ViewHelpers"
+      xmlns:i="http://typo3.org/ns/B13/Picture/ViewHelpers"
+      data-namespace-typo3-fluid="true"
+>
+
+<f:render partial="Search/Form" arguments="{search:search, additionalFilters:additionalFilters, pluginNamespace: pluginNamespace, resultSet: resultSet}" />
+
+<f:if condition="{resultSet.hasSearched}">
+    <f:if condition="{resultSet.allResultCount} > 0">
+        <f:then>
+            <f:render partial="Result/Facets" arguments="{resultSet: resultSet, facet: resultSet.facets.type}" />
+            <f:for each="{resultSet.searchResults}" as="document">
+                <f:render partial="Result/Document" arguments="{resultSet: resultSet, document: document}" />
+            </f:for>
+            <f:render partial="Result/Pagination" arguments="{resultSet: resultSet, pagination: pagination, currentPage: currentPage}"/>
+        </f:then>
+        <f:else>
+            <h3>No results found. It seems we can’t find any results based on your search.</h3>
+            <div class="b_contentcontainer b_contentcontainer--text">
+                <i:image src="EXT:site_t3demo/Resources/Public/Assets/Images/error.png" width="384"
+                         class="b_contentstage__image" pictureClass="b_contentstage__picture"
+                         sources="{lg: {width: '780'},
+								md: {width: '708'},
+								sm-md: {width: '737'},
+								sm: {width: '538'}}"
+                />
+            </div>
+        </f:else>
+    </f:if>
+</f:if>
+</html>

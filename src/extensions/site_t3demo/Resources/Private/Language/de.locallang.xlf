@@ -35,6 +35,23 @@
 				<source>Password</source>
 				<target>Passwort</target>
 			</trans-unit>
+
+			<trans-unit id="search.placeholder">
+				<source>Search</source>
+				<target>Suche</target>
+			</trans-unit>
+			<trans-unit id="search.facet.all">
+				<source>All</source>
+				<target>Alle</target>
+			</trans-unit>
+			<trans-unit id="search.facet.recipe">
+				<source>Recipes</source>
+				<target>Rezepte</target>
+			</trans-unit>
+			<trans-unit id="search.facet.variety">
+				<source>Varieties</source>
+				<target>Sorten</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

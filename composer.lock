@@ -4,8 +4,116 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e9cb54b69f268ee99a60e07a5d06431",
+    "content-hash": "34da0ed9331339135183032af76f1adb",
     "packages": [
+        {
+            "name": "apache-solr-for-typo3/solr",
+            "version": "11.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TYPO3-Solr/ext-solr.git",
+                "reference": "44f94a7c37947b003b7336ae21e88d94d3e4ddc5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TYPO3-Solr/ext-solr/zipball/44f94a7c37947b003b7336ae21e88d94d3e4ddc5",
+                "reference": "44f94a7c37947b003b7336ae21e88d94d3e4ddc5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-json": "*",
+                "ext-libxml": "*",
+                "ext-simplexml": "*",
+                "php": "^7.4.0 || ^8.0",
+                "solarium/solarium": "6.2.3",
+                "typo3/cms-backend": "*",
+                "typo3/cms-core": "^11.5.14",
+                "typo3/cms-extbase": "*",
+                "typo3/cms-fluid": "*",
+                "typo3/cms-frontend": "*",
+                "typo3/cms-reports": "*",
+                "typo3/cms-scheduler": "*",
+                "typo3/cms-tstemplate": "*"
+            },
+            "replace": {
+                "apache-solr-for-typo3/solrfluid": "*",
+                "typo3-ter/solr": "self.version",
+                "typo3-ter/solrfluid": "*"
+            },
+            "require-dev": {
+                "phpspec/prophecy-phpunit": "*",
+                "phpunit/phpunit": "^9.5",
+                "sclable/xml-lint": "*",
+                "scrutinizer/ocular": "*",
+                "typo3/cms-fluid-styled-content": "*",
+                "typo3/coding-standards": ">=0.5.0",
+                "typo3/testing-framework": "^6.12"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-release-11.5.x": "11.5.x-dev"
+                },
+                "typo3/cms": {
+                    "extension-key": "solr",
+                    "cms-package-dir": "{$vendor-dir}/typo3/cms",
+                    "web-dir": ".Build/Web"
+                },
+                "TYPO3-Solr": {
+                    "version-matrix": {
+                        "ext-tika": "^11.0",
+                        "ext-solrfal": "^11.0",
+                        "ext-solrconsole": "^11.0",
+                        "ext-solrdebugtools": "^11.0",
+                        "ext-solrfluidgrouping": "^11.0",
+                        "ext-solrmlt": "^11.0",
+                        "Apache-Solr": "8.11.1",
+                        "configset": "ext_solr_11_5_0"
+                    },
+                    "ext-solrfal": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ApacheSolrForTypo3\\Solr\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Ingo Renner",
+                    "email": "ingo@typo3.org",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Apache Solr for TYPO3",
+            "homepage": "https://www.typo3-solr.com",
+            "keywords": [
+                "TYPO3 CMS",
+                "search",
+                "solr",
+                "typo3"
+            ],
+            "support": {
+                "docs": "https://docs.typo3.org/p/apache-solr-for-typo3/solr/main/en-us/",
+                "email": "solr-eb-support@dkd.de",
+                "forum": "https://talk.typo3.org",
+                "issues": "https://github.com/TYPO3-Solr/ext-solr/issues",
+                "slack": "https://typo3.slack.com/archives/C02FF05Q4",
+                "source": "https://github.com/TYPO3-Solr/ext-solr"
+            },
+            "funding": [
+                {
+                    "url": "https://www.typo3-solr.com/",
+                    "type": "custom"
+                }
+            ],
+            "time": "2022-08-26T15:44:59+00:00"
+        },
         {
             "name": "b13/assetcollector",
             "version": "1.5.2",
@@ -2934,6 +3042,69 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "solarium/solarium",
+            "version": "6.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/solariumphp/solarium.git",
+                "reference": "f91185d07d9d3f40ef92810e182e621c51635e8b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/solariumphp/solarium/zipball/f91185d07d9d3f40ef92810e182e621c51635e8b",
+                "reference": "f91185d07d9d3f40ef92810e182e621c51635e8b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.3 || ^8.0",
+                "psr/event-dispatcher": "^1.0",
+                "psr/http-client": "^1.0",
+                "psr/http-factory": "^1.0",
+                "symfony/event-dispatcher-contracts": "^1.0 || ^2.0"
+            },
+            "require-dev": {
+                "escapestudios/symfony2-coding-standard": "^3.11",
+                "guzzlehttp/guzzle": "^7.2",
+                "nyholm/psr7": "^1.2",
+                "php-http/guzzle7-adapter": "^0.1",
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-phpunit": "^0.12",
+                "phpunit/phpunit": "^9.5",
+                "roave/security-advisories": "dev-master",
+                "symfony/event-dispatcher": "^4.3 || ^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Solarium\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "See GitHub contributors",
+                    "homepage": "https://github.com/solariumphp/solarium/contributors"
+                }
+            ],
+            "description": "PHP Solr client",
+            "homepage": "http://www.solarium-project.org",
+            "keywords": [
+                "php",
+                "search",
+                "solr"
+            ],
+            "support": {
+                "issues": "https://github.com/solariumphp/solarium/issues",
+                "source": "https://github.com/solariumphp/solarium/tree/6.2.3"
+            },
+            "time": "2022-01-31T15:37:35+00:00"
         },
         {
             "name": "symfony/cache",

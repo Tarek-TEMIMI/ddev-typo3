@@ -1,0 +1,75 @@
+plugin.tx_solr {
+  index {
+    queue {
+      pages {
+        allowedPageTypes = 1,4,10,11,12,13,15
+        additionalWhereClause = doktype IN (1,4,10,11,12,13,15) AND no_search = 0
+
+        fields {
+          title = title
+
+          type_stringS = CASE
+          type_stringS {
+            key.field = doktype
+
+            11 = TEXT
+            11.value = variety
+
+            12 = TEXT
+            12.value = recipe
+          }
+
+          media_intS = media
+        }
+      }
+    }
+  }
+
+  search {
+
+    targetPage = {$pages.search}
+
+    query {
+      boostQuery (
+        (type_stringS:recipe)^100
+        (type_stringS:variety)^200
+      )
+      tieParameter = 0.7
+      phrase = 1
+    }
+
+    results {
+      resultsPerPage = 10
+      resultsHighlighting = 1
+      resultsHighlighting.fragmentSize = 100
+      resultsHighlighting.wrap = <span class="b_search__highlight">|</span>
+    }
+
+    faceting = 1
+    faceting {
+      minimumCount = 1
+      keepAllFacetsOnSelection = 1
+
+      facets {
+        type {
+          field = type_stringS
+          manualSortOrder = recipe, variety
+        }
+      }
+    }
+  }
+
+  view {
+    templateRootPaths {
+      10 = EXT:site_t3demo/Resources/Private/Plugins/Solr/Templates/
+    }
+
+    partialRootPaths {
+      10 = EXT:site_t3demo/Resources/Private/Plugins/Solr/Partials/
+    }
+
+    layoutRootPaths {
+      10 = EXT:site_t3demo/Resources/Private/Plugins/Solr/Layouts/
+    }
+  }
+}

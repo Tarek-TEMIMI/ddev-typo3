@@ -1,0 +1,22 @@
+version: '3.6'
+
+services:
+  solr:
+    container_name: ddev-${DDEV_SITENAME}-solr
+    image: solr:8.11.2
+    restart: "no"
+    expose:
+      - 8983
+      - 8984
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: $DDEV_APPROOT
+    environment:
+      - VIRTUAL_HOST=$DDEV_HOSTNAME
+      - HTTP_EXPOSE=8983
+      - HTTPS_EXPOSE=8984:8983
+    volumes:
+      - ./solr:/var/solr/data
+  web:
+    links:
+      - solr

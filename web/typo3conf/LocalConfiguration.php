@@ -78,6 +78,15 @@ return [
             'automaticWebPageSchemaGeneration' => '0',
             'embedMarkupInBodySection' => '1',
         ],
+        'solr' => [
+            'allowSelfSignedCertificates' => '0',
+            'includeGlobalQParameterInCacheHash' => '0',
+            'monitoringType' => '0',
+            'pluginNamespaces' => 'tx_solr',
+            'useConfigurationFromClosestTemplate' => '0',
+            'useConfigurationMonitorTables' => '',
+            'useConfigurationTrackRecordsOutsideSiteroot' => '1',
+        ],
     ],
     'FE' => [
         'debug' => false,
@@ -113,7 +122,7 @@ return [
         'writerConfiguration' => [
             'warning' => [
                 'TYPO3\CMS\Core\Log\Writer\FileWriter' => ['disabled' => true]
-            ],
+                ],
             'error' => [
                 'TYPO3\CMS\Core\Log\Writer\FileWriter' => ['disabled' => false]
             ],

@@ -23,5 +23,6 @@ class PageConfiguration
     public const DOKTYPE_APPLE = 11;
     public const DOKTYPE_RECIPE = 12;
     public const DOKTYPE_OVERVIEW = 13;
+    public const DOKTYPE_SEARCH = 14;
     public const DOKTYPE_FAQPAGE = 15;
 }

@@ -55,6 +55,19 @@
 			<trans-unit id="widgets.serverResetExplanation.header" resname="widgets.serverResetExplanation.header">
 				<source>Why is there a reset after 30 minutes?</source>
 			</trans-unit>
+
+			<trans-unit id="search.placeholder">
+				<source>Search</source>
+			</trans-unit>
+			<trans-unit id="search.facet.all">
+				<source>All</source>
+			</trans-unit>
+			<trans-unit id="search.facet.recipe">
+				<source>Recipes</source>
+			</trans-unit>
+			<trans-unit id="search.facet.variety">
+				<source>Varieties</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
