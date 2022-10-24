@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "49325dbfc1103850a10d64c4d75a23d6",
+    "content-hash": "ebc5b454e7b731b06c72a02e0a48d622",
     "packages": [
         {
             "name": "b13/assetcollector",
@@ -177,9 +177,6 @@
                 "typo3/cms-backend": "^9.5 || ^10.4 || ^11.0",
                 "typo3/cms-fluid-styled-content": "^9.5 || ^10.4 || ^11.0"
             },
-            "replace": {
-                "b13/cta": "*"
-            },
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -323,11 +320,14 @@
                 "typo3/cms-frontend": "^9.5 || ^10 || ^11"
             },
             "require-dev": {
-                "typo3/cms-core": "^10 || ^11",
-                "typo3/cms-frontend": "^10 || ^11",
-                "typo3/coding-standards": "^0.1.0",
+                "phpspec/prophecy": "^1.10.3",
+                "phpstan/phpstan": "^0.12.11",
+                "phpunit/phpunit": "^8.4",
+                "typo3/cms-core": "^10",
+                "typo3/cms-frontend": "^10",
+                "typo3/coding-standards": "^0.5",
                 "typo3/tailor": "^1.0",
-                "typo3/testing-framework": "~6.1.0"
+                "typo3/testing-framework": "^6"
             },
             "default-branch": true,
             "type": "typo3-cms-extension",
@@ -351,7 +351,7 @@
             "description": "Easy and fast menus for TYPO3 Frontends",
             "support": {
                 "issues": "https://github.com/b13/menus/issues",
-                "source": "https://github.com/b13/menus/tree/v0.3.0"
+                "source": "https://github.com/b13/menus/tree/master"
             },
             "time": "2021-10-14T11:46:24+00:00"
         },
@@ -1960,6 +1960,73 @@
                 "source": "https://github.com/IchHabRecht/content_defender/tree/3.2.1"
             },
             "time": "2021-11-10T16:31:30+00:00"
+        },
+        {
+            "name": "ichhabrecht/filefill",
+            "version": "4.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/IchHabRecht/filefill.git",
+                "reference": "3265d87062c6c7845ce988ddbf8c25098632e016"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/IchHabRecht/filefill/zipball/3265d87062c6c7845ce988ddbf8c25098632e016",
+                "reference": "3265d87062c6c7845ce988ddbf8c25098632e016",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0",
+                "typo3/cms-core": "^10.4.11 || ^11.5"
+            },
+            "replace": {
+                "typo3-ter/filefill": "self.version"
+            },
+            "require-dev": {
+                "nimut/testing-framework": "6.x-dev"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "4.x-dev"
+                },
+                "typo3/cms": {
+                    "extension-key": "filefill",
+                    "cms-package-dir": "{$vendor-dir}/typo3/cms",
+                    "app-dir": ".Build",
+                    "web-dir": ".Build/public"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "IchHabRecht\\Filefill\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Nicole Cordes",
+                    "email": "typo3@cordes.co",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Find and fetch missing local files from different remotes",
+            "homepage": "https://github.com/IchHabRecht/filefill",
+            "keywords": [
+                "extension",
+                "file",
+                "missing",
+                "placeholder",
+                "typo3"
+            ],
+            "support": {
+                "issues": "https://github.com/IchHabRecht/filefill/issues",
+                "source": "https://github.com/IchHabRecht/filefill/tree/4.1.1"
+            },
+            "time": "2022-05-05T16:24:54+00:00"
         },
         {
             "name": "lolli42/finediff",
@@ -8194,6 +8261,7 @@
                 "issues": "https://github.com/PHP-CS-Fixer/diff/issues",
                 "source": "https://github.com/PHP-CS-Fixer/diff/tree/v2.0.2"
             },
+            "abandoned": true,
             "time": "2020-10-14T08:32:19+00:00"
         },
         {

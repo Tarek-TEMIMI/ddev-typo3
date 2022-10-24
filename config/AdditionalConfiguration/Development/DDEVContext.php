@@ -42,5 +42,11 @@ if (getenv('IS_DDEV_PROJECT') == 'true') {
             ]
         ]
     );
+
+    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['filefill']['storages'][1] = [
+        [
+            'identifier' => 'sys_domain',
+        ]
+    ];
 }
 
