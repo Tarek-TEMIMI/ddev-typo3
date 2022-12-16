@@ -1,9 +1,0 @@
-<html xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers" data-namespace-typo3-fluid="true">
-<a href="{editLink.url -> f:format.raw()}" title="{editLink.title}">
-	<strong><f:translate key="LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:CType.footerinfo.name" /></strong><br>
-	{bodytext -> f:format.nl2br()}<br>
-	<f:if condition="{link}">
-		<strong>CTA: </strong>{linklabel} (Link to {f:uri.typolink(parameter: link, absolute: true)})
-	</f:if>
-</a>
-</html>

@@ -64,25 +64,6 @@
 
 /* backend page module element previews */
 .b_ce {
-	@at-root {
-		[class*="--hidden"] {
-			opacity: 0.5
-		}
-	}
-	&__thumbnail-wrapper {
-		display: inline-block;
-		max-width: 200px;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		margin-right: 10px;
-		vertical-align: top;
-		&--single {
-			max-width: 100%;
-		}
-	}
-	&__thumbnail {
-		margin-bottom: 10px;
-	}
 	&__list {
 		padding-left: 0;
 	}
@@ -90,13 +71,6 @@
 	&__listitem {
 		margin-left: 18px;
 		font-weight: normal;
-	}
-
-	&__error {
-		color: #C83C3C;
-	}
-	&__warning {
-		color: #ff6700;
 	}
 }
 

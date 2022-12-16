@@ -27,7 +27,7 @@
 				<ac:svg name="logo" class="b_header__logo" additionalAttributes="{aria-hidden: 'true'}"/>
 			</a>
 		</span>
-        <f:if condition="!{settings.hideSearch}">
+        <f:if condition="!{settings.hideSearch} && {searchpage}">
             <div class="b_header__searchlinkwrapper">
                 <a href="{searchpage.0.link}" class="b_header__searchlink" aria-label="{searchpage.0.title}">
                     <ac:svg name="search" class="b_header__searchlink-logo" additionalAttributes="{aria-hidden: 'true'}"/>
@@ -80,7 +80,7 @@
 				</li>
 			</f:for>
 		</ul>
-        <f:if condition="!{settings.hideSearch}">
+        <f:if condition="!{settings.hideSearch} && {searchpage}">
             <form action="{searchpage.0.link}" class="b_search b_search--header">
                 <label class="b_search__header-input-wrap">
                     <input type="search" name="q" value="{q}" class="b_search__input b_search__input--header" autocomplete="off"

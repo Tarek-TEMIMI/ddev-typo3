@@ -1,0 +1,14 @@
+<html
+	data-namespace-typo3-fluid="true"
+>
+
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <f:render partial="Images" arguments="{images: allImages}" />
+    <f:render partial="Text" arguments="{text: bodytext}" />
+
+    <f:render partial="Warning/FirstImage" arguments="{images: allImages-visible, hidden: hidden}" />
+</f:section>
+
+</html>

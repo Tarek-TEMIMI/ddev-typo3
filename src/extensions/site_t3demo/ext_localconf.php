@@ -11,8 +11,11 @@ defined('TYPO3_MODE') or die();
     $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['rteWithTable'] = 'EXT:site_t3demo/Configuration/RTE/RteWithTable.yaml';
 
     // Hook for rendering backend preview content element
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem'][] = \B13\SiteT3demo\Hooks\DrawItemDefault::class;
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem'][] = \B13\SiteT3demo\Hooks\DrawItem::class;
+    // set our preview renderer to be processed before EXT:backendpreviews
+    array_unshift(
+        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem'],
+        \B13\SiteT3demo\Hooks\DrawItem::class
+    );
 
     // show additional information in page layout header for "Notes of Interest".
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/db_layout.php']['drawHeaderHook'][]
@@ -20,11 +23,9 @@ defined('TYPO3_MODE') or die();
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['recordlist/Modules/Recordlist/index.php']['drawHeaderHook'][]
         = \B13\SiteT3demo\Hooks\PageLayoutHeaderHook::class . '->drawHeader';
 
-    // remove the default textpic and text preview renderer (we want to use our own preview renderer exclusively
+    // remove the default textmedia preview renderer (we want to use our own preview templates
     unset(
         $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['textmedia'],
-        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['textpic'],
-        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['text']
     );
 
     // add our own icons to the icon registry

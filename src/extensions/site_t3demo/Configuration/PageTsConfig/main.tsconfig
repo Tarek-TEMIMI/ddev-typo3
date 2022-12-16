@@ -1,13 +1,13 @@
+@import 'EXT:backendpreviews/Configuration/PageTs/PageTs.tsconfig'
+
 @import 'EXT:site_t3demo/Configuration/PageTsConfig/mod/web_layout/BackendLayouts/*.tsconfig'
 @import 'EXT:site_t3demo/Configuration/PageTsConfig/mod/wizards/newContentElement/*.tsconfig'
-@import 'EXT:site_t3demo/Configuration/PageTsConfig/mod/web_layout/tt_content/preview/*.tsconfig'
+@import 'EXT:site_t3demo/Configuration/PageTsConfig/mod/web_layout/tt_content/preview/view.tsconfig'
 @import 'EXT:site_t3demo/Configuration/PageTsConfig/TCEFORM.tsconfig'
 
 mod.wizards.newContentElement.wizardItems.common.show = *
 mod.wizards.newContentElement.wizardItems.special.show = *
 
-mod.wizards.newContentElement.wizardItems.common.elements.textpic.title = LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:CType.textpic.name
-mod.wizards.newContentElement.wizardItems.common.elements.textpic.description = LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:CType.textpic.description
 mod.wizards.newContentElement.wizardItems.menu.elements.menu_pages.title = LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:CType.menu_pages.name
 mod.wizards.newContentElement.wizardItems.menu.elements.menu_pages.description = LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:CType.menu_pages.description
 mod.wizards.newContentElement.wizardItems.menu.elements.menu_subpages.title = LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:CType.menu_subpages.name

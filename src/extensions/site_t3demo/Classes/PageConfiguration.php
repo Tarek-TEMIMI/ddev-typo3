@@ -25,22 +25,4 @@ class PageConfiguration
     public const DOKTYPE_OVERVIEW = 13;
     public const DOKTYPE_SEARCH = 14;
     public const DOKTYPE_FAQPAGE = 15;
-
-    protected array $backendLayoutMapping = [
-        self::DOKTYPE_CONTENTPAGE => 'pagets__Contentpage',
-        self::DOKTYPE_STARTPAGE => 'pagets__Startpage',
-        self::DOKTYPE_APPLE => 'pagets__Applepage',
-        self::DOKTYPE_RECIPE => 'pagets__Recipepage',
-        self::DOKTYPE_OVERVIEW => 'pagets__Overviewpage',
-        self::DOKTYPE_SEARCH => 'pagets__Searchpage',
-        self::DOKTYPE_FAQPAGE => 'pagets__Faqpage',
-    ];
-
-    public function getBackendLayout(int $doktype): string
-    {
-        if (empty($this->backendLayoutMapping[$doktype])) {
-            throw new \Exception('No backend layout mapping for doktype ' . $doktype, 1553253111);
-        }
-        return $this->backendLayoutMapping[$doktype];
-    }
 }

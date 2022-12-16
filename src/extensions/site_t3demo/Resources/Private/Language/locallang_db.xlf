@@ -124,12 +124,6 @@
 			<trans-unit id="CType.ingredients.description" resname="CType.ingredients.description">
 				<source>Table for listing ingredients.</source>
 			</trans-unit>
-			<trans-unit id="CType.textpic.name" resname="CType.textpic.name">
-				<source>Text w/ Image</source>
-			</trans-unit>
-			<trans-unit id="CType.textpic.description" resname="CType.textpic.description">
-				<source>An image wrapped around a regular text element.</source>
-			</trans-unit>
 			<trans-unit id="CType.keyvisual.name" resname="CType.keyvisual.name">
 				<source>Keyvisual</source>
 			</trans-unit>

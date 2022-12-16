@@ -17,6 +17,7 @@
             <f:render partial="Result/Pagination" arguments="{resultSet: resultSet, pagination: pagination, currentPage: currentPage}"/>
         </f:then>
         <f:else>
+            <h3>No results found. It seems we can’t find any results based on your search.</h3>
             <div class="b_contentcontainer b_contentcontainer--text">
                 <i:image src="EXT:site_t3demo/Resources/Public/Assets/Images/error.png" width="384"
                          class="b_contentstage__image" pictureClass="b_contentstage__picture"
@@ -25,7 +26,6 @@
 								sm-md: {width: '737'},
 								sm: {width: '538'}}"
                 />
-                <h3>No results found. It seems we can’t find any results based on your search.</h3>
             </div>
         </f:else>
     </f:if>
