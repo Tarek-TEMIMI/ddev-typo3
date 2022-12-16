@@ -22,7 +22,7 @@ cache:
 # Runs tests, currently it runs phpstan + php-cs-fixer
 code-analysis:php:
   stage: lint
-  image: composer:2.2
+  image: composer:2.2.17
   before_script:
     - composer install $composer_options
   script:
