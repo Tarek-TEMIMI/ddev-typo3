@@ -27,7 +27,7 @@ TCEFORM.pages {
 }
 
 TCEFORM.pages {
-  doktype.removeItems = 7,255,199
+  doktype.removeItems = 6,7,255,199
   subtitle.disabled = 1
   author.disabled = 1
   author_email.disabled = 1
