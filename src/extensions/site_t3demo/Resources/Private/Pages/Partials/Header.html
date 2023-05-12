@@ -125,17 +125,20 @@
 					<f:then>
 						<f:if condition="!{currentpage.0.data.fe_group}">
 							<f:then>
-								<f:link.page additionalParams="{logintype: 'logout'}" class="b_button b_button--secondary umami--click--button-frontend-logout">
+								<f:link.page additionalParams="{logintype: 'logout'}" class="b_button b_button--secondary"
+                                             additionalAttributes="{data-umami-event: 'Frontend Logout'}">
 									<f:translate key="login.logout" extensionName="site_t3demo" />
 								</f:link.page>
 							</f:then>
 							<f:else if="{f:uri.typolink(parameter: settings.login)}">
-								<f:link.page pageUid="{settings.login}" additionalParams="{logintype: 'logout'}" class="b_button b_button--secondary umami--click--button-frontend-logout">
+								<f:link.page pageUid="{settings.login}" additionalParams="{logintype: 'logout'}" class="b_button b_button--secondary"
+                                             additionalAttributes="{data-umami-event: 'Frontend Logout'}">
 									<f:translate key="login.logout" extensionName="site_t3demo" />
 								</f:link.page>
 							</f:else>
 							<f:else>
-								<f:link.page pageUid="{settings.startpage}" additionalParams="{logintype: 'logout'}" class="b_button b_button--secondary umami--click--button-frontend-logout">
+								<f:link.page pageUid="{settings.startpage}" additionalParams="{logintype: 'logout'}" class="b_button b_button--secondary"
+                                             additionalAttributes="{data-umami-event: 'Frontend Logout'}">
 									<f:translate key="login.logout" extensionName="site_t3demo" />
 								</f:link.page>
 							</f:else>
@@ -143,7 +146,8 @@
 					</f:then>
 					<f:else>
 						<f:if condition="{f:uri.typolink(parameter: settings.login)}">
-							<f:link.typolink parameter="{settings.login}" class="b_button umami--click--button-frontend-login">
+							<f:link.typolink parameter="{settings.login}" class="b_button"
+                                             additionalAttributes="{data-umami-event: 'Frontend Login'}">
 								<f:translate key="login.login" extensionName="site_t3demo" />
 							</f:link.typolink>
 						</f:if>
