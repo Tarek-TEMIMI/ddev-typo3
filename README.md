@@ -25,7 +25,7 @@ Requirements:
 * Composer >= 2.2
 * PHP >= 7.4.1 <= 8.0.99
 
-To set up the TYPO3 Demo Project for local development
+### Set up the TYPO3 Demo Project on Linux/macOS
 
 1. Download code `git clone ssh://git@gitlab.typo3.org:2222/services/demo.typo3.org/site.git`
 2. Install composer packages `ddev composer install`
@@ -38,6 +38,19 @@ To set up the TYPO3 Demo Project for local development
 6. Update schema: `ddev typo3cms database:updateschema`
 7. Create a backend user `ddev typo3cms backend:createadmin username password`
 8. Start the project running `ddev start`
+
+### Set up the TYPO3 Demo Project on Windows:
+
+To set up the TYPO3 Demo Project on a Windows machine a little more effort is required. Before you can
+install the TYPO3 Demo Project, you have to have a running DDEV installation inside your WSL2 for Windows.
+There is a [great tutorial](https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/#windows) on the official DDEV Website.
+This tutorial will guide you through the necessary
+steps for installing WSL2, Docker and DDEV.
+
+Once you walked through the first three steps of the guide and successfully
+installed WSL2, Docker and DDEV you can follow the instructions for Linux/macOS users provided above.
+Keep in mind, that you have to execute all the commands from within your WSL2 Distribution and not
+your Windows Powershell.
 
 ## Reset feature
 For technical documentation see https://docs.google.com/document/d/1oRHFK35haOP0oXyO6H1Ufe7r3VKnuA6iZe6ua8jPefU/ (please contact us via Slack channel #cig-typo3-demo)
