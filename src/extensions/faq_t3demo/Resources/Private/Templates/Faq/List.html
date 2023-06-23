@@ -2,6 +2,8 @@
 			xmlns:rd="http://typo3.org/ns/TYPO3/CMS/Redirects/ViewHelpers"
 			xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
 			data-namespace-typo3-fluid="true">
+
+<f:layout name="Module" />
 <f:layout name="Default" />
 
 <f:section name="headline">
@@ -13,7 +15,7 @@
 		<f:translate key="LLL:EXT:faq_t3demo/Resources/Private/Language/locallang_module.xlf:description_text"/>
 	</p>
 
-	<div class="row">
+	<div class="row form-group">
 		<div class="col-md-6">
 			<div class="btn-group">
 				<be:link.newRecord class="btn btn-default" table="tx_faqt3demo_faq" returnUrl="{f:be.uri(route: 'web_faq')}"
@@ -26,15 +28,16 @@
 		<div class="col-md-6 text-right">
 			<form action="{f:be.uri(route:'web_faq')}"
 						method="post"
-						class="form-inline"
 						enctype="multipart/form-data"
-						class="form-inline form-inline-spaced">
-				<div class="form-group">
+						class="form-wizards-wrap">
+				<div class="form-wizards-element">
 					<input type="text" class="form-control" placeholder="{f:translate(key:'LLL:EXT:faq_t3demo/Resources/Private/Language/locallang_module.xlf:search_placeholder')}" name="filter" value="{filter}">
 				</div>
-				<button class="btn btn-default" type="submit">
-					<core:icon identifier="actions-search"/>
-				</button>
+                <div class="form-wizards-items-aside form-wizards-items-aside--field-control">
+                    <button class="btn btn-default" type="submit">
+                        <core:icon identifier="actions-search"/>
+                    </button>
+                </div>
 			</form>
 		</div>
 	</div>

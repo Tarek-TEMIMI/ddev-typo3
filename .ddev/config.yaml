@@ -1,7 +1,7 @@
 name: demo.typo3.org
 type: typo3
 docroot: web
-php_version: "7.4"
+php_version: "8.1"
 webserver_type: nginx-fpm
 router_http_port: "80"
 router_https_port: "443"
@@ -23,16 +23,17 @@ web_environment:
 typo3_solr_cores:
   - { name: core_en, schema: "english/schema.xml" }
   - { name: core_de, schema: "german/schema.xml" }
-typo3_solr_ext_path: 'web/typo3conf/ext/solr/Resources/Private/Solr/'
-typo3_solr_configset: 'ext_solr_11_5_0'
+typo3_solr_ext_path: 'vendor/apache-solr-for-typo3/solr/Resources/Private/Solr/'
+typo3_solr_configset: 'ext_solr_12_0_0'
 hooks:
   pre-pull:
     - exec: "mkdir -p ./.ddev/typo3-demo-data"
-    - exec: "curl https://git-t3o.typo3.org/api/v4/projects/98/packages/generic/site/1.0.0/demo-data.zip -o ./.ddev/typo3-demo-data/demo-data.zip"
+    - exec: "curl https://git.typo3.org/api/v4/projects/98/packages/generic/site/1.0.0/demo-data.zip -o ./.ddev/typo3-demo-data/demo-data.zip"
     - exec: "unzip ./.ddev/typo3-demo-data/demo-data.zip -d ./.ddev/typo3-demo-data/"
   post-pull:
     - exec: "rm -Rf ./.ddev/typo3-demo-data"
-    - exec: "bin/typo3cms database:updateschema"
+    # @todo: Uncomment after v12 was deployed
+    #    - exec: "bin/typo3 database:updateschema"
   post-start:
     - exec-host: composer install
     - exec: |
@@ -50,8 +51,8 @@ hooks:
         done
   post-import-db:
     - exec: |
-        bin/typo3cms database:updateschema
-        bin/typo3cms cache:flush
+        bin/typo3 extension:setup
+        bin/typo3 cache:flush
 
 # This config.yaml was created with ddev version v1.16.0
 # webimage: drud/ddev-webserver:v1.16.0

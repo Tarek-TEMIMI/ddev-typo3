@@ -16,6 +16,26 @@ services:
   B13\SiteT3demo\Backend\ToolbarItems\TimerToolbarItem:
     public: true
 
+  B13\SiteT3demo\Backend\EventListener\PageLayoutHeaderEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'site-t3demo/backend/pagelayout-add-infotext-header'
+
+  B13\SiteT3demo\Backend\EventListener\RecordListHeaderEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'site-t3demo/backend/recordlist-add-infotext-header'
+
+  B13\SiteT3demo\Backend\EventListener\StartSyncTimerEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'site-t3demo/backend/after-user-login-start-sync-timer'
+
+  B13\SiteT3demo\Backend\EventListener\DrawItemEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'site-t3demo/preview-rendering-ctype'
+
   dashboard.widget.site_t3demo.t3demoGitlab:
     class: 'TYPO3\CMS\Dashboard\Widgets\CtaWidget'
     arguments:

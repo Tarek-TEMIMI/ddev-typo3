@@ -1,15 +1,15 @@
 <?php
 
-defined('TYPO3_MODE') or die();
+defined('TYPO3') or die();
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:CType.lead.name',
-        'lead',
-        'content-header',
-        'common',
+        'label' => 'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:CType.lead.name',
+        'value' => 'lead',
+        'icon' => 'content-header',
+        'group' => 'common',
     ]
 );
 

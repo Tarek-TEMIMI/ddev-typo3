@@ -1,4 +1,4 @@
-const relExtPath = "../../../web/typo3conf/ext/site_t3demo";
+const relExtPath = "../../extensions/site_t3demo";
 const relScssPath = `${relExtPath}/Resources/Private/Scss`;
 const relCssPath = `${relExtPath}/Resources/Public/Css`;
 

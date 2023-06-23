@@ -12,7 +12,7 @@ namespace B13\FaqT3demo\RecordList;
  * of the License, or any later version.
  */
 
-class DatabaseRecordList extends \TYPO3\CMS\Recordlist\RecordList\DatabaseRecordList
+class DatabaseRecordList extends \TYPO3\CMS\Backend\RecordList\DatabaseRecordList
 {
     /**
      * Rendering the header row for a table
@@ -39,7 +39,7 @@ class DatabaseRecordList extends \TYPO3\CMS\Recordlist\RecordList\DatabaseRecord
      */
     public function getTotalItems(string $table, int $id): int
     {
-        $queryBuilderTotalItems = $this->getQueryBuilder($table, $id, [], ['*'], false, 0, 1);
+        $queryBuilderTotalItems = $this->getQueryBuilder($table, ['*'], false, 0, 1);
         return (int)$queryBuilderTotalItems->count('*')
             ->executeQuery()
             ->fetchOne();

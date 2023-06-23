@@ -1,12 +1,9 @@
 <?php
 
-defined('TYPO3_MODE') or die();
+defined('TYPO3') or die();
 
 (function () {
-    $GLOBALS['TBE_STYLES']['skins']['site_t3demo']['name'] = 'site_t3demo';
-    $GLOBALS['TBE_STYLES']['skins']['site_t3demo']['stylesheetDirectories'] = [
-        'EXT:site_t3demo/Resources/Public/Backend/Css/Skin/',
-    ];
+    $GLOBALS['TYPO3_CONF_VARS']['BE']['stylesheets']['site_t3demo_backend'] = 'EXT:site_t3demo/Resources/Public/Backend/Css/Skin/t3skin_override.css';
 
     // Build or own drop in flyout menu for creating new pages, in the order we prefer
     $allDoktypesForFlyoutMenu = [

@@ -28,5 +28,5 @@ node_modules/
 # Exclude everything in typo3conf/ except typo3conf itself
 /web/typo3conf/*
 !/web/typo3conf
-!/web/typo3conf/LocalConfiguration.php
-!/web/typo3conf/AdditionalConfiguration.php
+!/config/system/settings.php.php
+!/config/system/additional.php.php

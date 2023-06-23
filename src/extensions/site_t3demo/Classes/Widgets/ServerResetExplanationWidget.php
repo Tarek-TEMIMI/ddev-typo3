@@ -37,11 +37,16 @@ class ServerResetExplanationWidget implements WidgetInterface
 
     public function renderWidgetContent(): string
     {
-        $this->view->setTemplate('Widget/ServerResetExplanation');
+        $this->view->setTemplatePathAndFilename('EXT:site_t3demo/Resources/Private/Templates/Widget/ServerResetExplanation.html');
         $this->view->assignMultiple([
             'options' => $this->options,
             'configuration' => $this->configuration,
         ]);
         return $this->view->render();
+    }
+
+    public function getOptions(): array
+    {
+        return [];
     }
 }

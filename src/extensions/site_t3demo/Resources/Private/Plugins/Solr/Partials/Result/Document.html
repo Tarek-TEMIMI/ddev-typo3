@@ -9,7 +9,7 @@
 <div class="b_result">
     <f:render partial="Result/Breadcrumb" arguments="{pageUid: document.uid}"/>
     <a href="{document.url}" class="b_result__link">
-        <f:if condition="{document.media_intS} > 0">
+        <f:if condition="{document.media_intS}">
             {f:cObject(typoscriptObjectPath: 'lib.getPageMediaField', data: {pageUid: document.uid, mediaField: 'uid'}) -> f:variable(name: 'mediaUid')}
             {f:cObject(typoscriptObjectPath: 'lib.getPageMediaField', data: {pageUid: document.uid, mediaField: 'copyright'}) -> f:variable(name: 'mediaCopyright')}
 

@@ -22,8 +22,9 @@ cache:
 # Runs tests, currently it runs phpstan + php-cs-fixer
 code-analysis:php:
   stage: lint
-  image: composer:2.2.17
+  image: composer:2.5.5
   before_script:
+    - install-php-extensions intl
     - composer install $composer_options
   script:
     - if [ -e bin/phpstan ]; then php -d memory_limit=2G ./bin/phpstan analyse; fi
@@ -33,8 +34,9 @@ code-analysis:php:
 # Builds the artifacts for the production system (composer first)
 build:php:
   stage: build
-  image: composer:2.2
+  image: composer:2.5.5
   script:
+    - install-php-extensions intl
     - composer install --no-dev -o -a $composer_options
   artifacts:
     paths:
@@ -76,7 +78,7 @@ build:php:
 .deploy: &deploy
   <<: *prepare-ssh
   # deployer does not work with composer2.2 for the time being
-  image: composer:2.0.8
+  image: composer:2.5.5
   variables:
     # no git needed, only the artifacts are required
     GIT_STRATEGY: none
@@ -128,7 +130,7 @@ deploy:staging:
 # Download database and fileadmin
 Get dump for Content Master:
   <<: *prepare-ssh
-  image: composer:2.2
+  image: composer:2.5.5
   when: manual
   variables:
     GITLAB_RELEASE_VERSION: "1.0.0"

@@ -2,9 +2,7 @@
 return [
     'BE' => [
         'debug' => false,
-        'explicitADmode' => 'explicitAllow',
         'installToolPassword' => getenv('TYPO3_INSTALLER_PASSWORD'),
-        'loginSecurityLevel' => 'normal',
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2iPasswordHash',
             'options' => [],
@@ -42,6 +40,7 @@ return [
             'loginFootnote' => 'TYPO3 made with ❤ by b13',
             'loginHighlightColor' => '#B11030',
             'loginLogo' => 'EXT:site_t3demo/Resources/Public/Assets/SVGs/logo.svg',
+            'loginLogoAlt' => '',
         ],
         'content_sync' => [
             'configuration' => [
@@ -74,9 +73,12 @@ return [
             'showSampleTasks' => '0',
         ],
         'schema' => [
+            'allowOnlyOneBreadcrumbList' => '0',
+            'automaticBreadcrumbExcludeAdditionalDoktypes' => '',
             'automaticBreadcrumbSchemaGeneration' => '1',
             'automaticWebPageSchemaGeneration' => '0',
             'embedMarkupInBodySection' => '1',
+            'embedMarkupOnNoindexPages' => '1',
         ],
         'solr' => [
             'allowSelfSignedCertificates' => '0',
@@ -103,7 +105,6 @@ return [
         'processor_effects' => false,
         'processor_enabled' => true,
         'processor_path' => '/usr/bin/',
-        'processor_path_lzw' => '/usr/bin/',
     ],
     'LOG' => [
         'TYPO3' => [
@@ -120,11 +121,15 @@ return [
             ],
         ],
         'writerConfiguration' => [
-            'warning' => [
-                'TYPO3\CMS\Core\Log\Writer\FileWriter' => ['disabled' => true]
-                ],
             'error' => [
-                'TYPO3\CMS\Core\Log\Writer\FileWriter' => ['disabled' => false]
+                'TYPO3\CMS\Core\Log\Writer\FileWriter' => [
+                    'disabled' => false,
+                ],
+            ],
+            'warning' => [
+                'TYPO3\CMS\Core\Log\Writer\FileWriter' => [
+                    'disabled' => true,
+                ],
             ],
         ],
     ],
@@ -146,6 +151,7 @@ return [
             'felogin.extbase' => true,
             'fluidBasedPageModule' => true,
             'rearrangedRedirectMiddlewares' => true,
+            'security.usePasswordPolicyForFrontendUsers' => true,
             'unifiedPageTranslationHandling' => true,
         ],
         'sitename' => 'TYPO3 Demo',

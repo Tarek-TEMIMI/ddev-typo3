@@ -1,6 +1,12 @@
 define([], function() {
 
 	const timerSpan = document.getElementById('b13-t3demo-timer');
+
+  // Avoid errors if the element does not exist, e.g. in Development context
+  if(!timerSpan) {
+    return
+  }
+
 	const endTime = timerSpan.getAttribute('data-endtime');
 
 	const updateText = function (minutesRemaining) {

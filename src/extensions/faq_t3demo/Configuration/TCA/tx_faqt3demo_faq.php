@@ -5,7 +5,6 @@ return [
         'title' => 'LLL:EXT:faq_t3demo/Resources/Private/Language/locallang_db.xlf:faq',
         'label' => 'question',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'tstamp' => 'tstamp',
         'versioningWS' => false,
         'security' => [
@@ -40,8 +39,7 @@ return [
                 'renderType' => 'checkboxToggle',
                 'items' => [
                     [
-                        0 => '',
-                        1 => '',
+                        'label' => '',
                         'invertStateDisplay' => true,
                     ],
                 ],
@@ -52,7 +50,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim,required',
+                'eval' => 'trim',
+                'required' => true,
                 'max' => 255,
             ],
             'l10n_mode' => 'prefixLangTitle',
@@ -61,7 +60,9 @@ return [
             'label' => 'LLL:EXT:faq_t3demo/Resources/Private/Language/locallang_db.xlf:faq.answer',
             'config' => [
                 'type' => 'text',
-                'eval' => 'trim,required',
+                'eval' => 'trim',
+                // Enable once https://forge.typo3.org/issues/100838 was fixed
+                // 'required' => true,
                 'cols' => 80,
                 'rows' => 15,
                 'enableRichtext' => true,
