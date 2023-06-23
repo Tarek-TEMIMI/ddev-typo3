@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace B13\SiteT3demo\Hooks;
+namespace B13\SiteT3demo\Backend\EventListener;
 
 /*
  * This file is part of TYPO3 CMS-extension site_t3demo by b13.
@@ -12,29 +12,23 @@ namespace B13\SiteT3demo\Hooks;
  * of the License, or any later version.
  */
 
-use TYPO3\CMS\Backend\View\PageLayoutView;
-use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
-use TYPO3\CMS\Core\Database\Connection;
+use Doctrine\DBAL\ArrayParameterType;
+use TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-/**
- * Class/Function which manipulates the rendering of item example content
- */
-class DrawItem implements PageLayoutViewDrawItemHookInterface
+final class DrawItemEventListener
 {
-
-    /**
-     * @param PageLayoutView $parentObject : The parent object that triggered this hook
-     * @param bool $drawItem : A switch to tell the parent object, if the item still must be drawn
-     * @param string $headerContent : The content of the item header
-     * @param string $itemContent : The content of the item itself
-     * @param array $row : The current data row for this item
-     */
-    public function preProcess(PageLayoutView &$parentObject, &$drawItem, &$headerContent, &$itemContent, array &$row)
+    public function __invoke(PageContentPreviewRenderingEvent $event): void
     {
-        if ($row['CType'] === 'menu_pages') {
+        if ($event->getTable() !== 'tt_content') {
+            return;
+        }
+
+        $record = $event->getRecord();
+
+        if ($event->getRecord()['CType'] === 'menu_pages') {
             $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
                 ->getQueryBuilderForTable('pages');
             $queryBuilder
@@ -45,14 +39,14 @@ class DrawItem implements PageLayoutViewDrawItemHookInterface
                 ->select('*')
                 ->from('pages')
                 ->where(
-                    $queryBuilder->expr()->in('uid', $queryBuilder->createNamedParameter(explode(',', $row['pages']), Connection::PARAM_INT_ARRAY))
+                    $queryBuilder->expr()->in('uid', $queryBuilder->createNamedParameter(explode(',', $record['pages']), ArrayParameterType::INTEGER))
                 );
-            $row['relatedPages'] = $queryBuilder
+            $record['relatedPages'] = $queryBuilder
                 ->executeQuery()
                 ->fetchAllAssociative();
         }
 
-        if ($row['CType'] === 'menu_subpages') {
+        if ($event->getRecord()['CType'] === 'menu_subpages') {
             $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
                 ->getQueryBuilderForTable('pages');
             $queryBuilder
@@ -63,15 +57,17 @@ class DrawItem implements PageLayoutViewDrawItemHookInterface
                 ->select('*')
                 ->from('pages')
                 ->where(
-                    $queryBuilder->expr()->in('pid', $queryBuilder->createNamedParameter(explode(',', ((string)$row['pages'] ?: (string)$row['pid'])), Connection::PARAM_INT_ARRAY)),
+                    $queryBuilder->expr()->in('pid', $queryBuilder->createNamedParameter(explode(',', ((string)$record['pages'] ?: (string)$record['pid'])), ArrayParameterType::INTEGER)),
                     $queryBuilder->expr()->eq(
                         'sys_language_uid',
-                        $queryBuilder->createNamedParameter($row['sys_language_uid'])
+                        $queryBuilder->createNamedParameter($record['sys_language_uid'])
                     )
                 );
-            $row['subPages'] = $queryBuilder
+            $record['subPages'] = $queryBuilder
                 ->executeQuery()
                 ->fetchAllAssociative();
         }
+
+        $event->setRecord($record);
     }
 }

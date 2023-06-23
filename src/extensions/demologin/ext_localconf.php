@@ -1,6 +1,6 @@
 <?php
 
-defined('TYPO3_MODE') or die('Access denied.');
+defined('TYPO3') or die('Access denied.');
 
 (function () {
     if ((string)\TYPO3\CMS\Core\Core\Environment::getContext() === 'Production') {
@@ -24,7 +24,7 @@ defined('TYPO3_MODE') or die('Access denied.');
         $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['backend']['loginProviders'][1602851401] = [
             'provider' => \B13\DemoLogin\LoginProvider\DemoLoginProvider::class,
             'sorting' => 90,
-            'icon-class' => 'fa-key',
+            'iconIdentifier' => 'fa-key',
             'label' => 'LLL:EXT:demologin/Resources/Private/Language/locallang.xlf:login.link',
         ];
     }

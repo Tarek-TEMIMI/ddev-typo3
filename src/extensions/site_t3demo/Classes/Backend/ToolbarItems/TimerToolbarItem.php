@@ -14,6 +14,7 @@ namespace B13\SiteT3demo\Backend\ToolbarItems;
 
 use B13\SiteT3demo\RegistryInterface;
 use TYPO3\CMS\Backend\Toolbar\ToolbarItemInterface;
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Registry;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -36,13 +37,17 @@ class TimerToolbarItem implements ToolbarItemInterface
 
     public function getItem(): string
     {
-        $nextSync = $this->registry->get(RegistryInterface::NAMESPACE, RegistryInterface::KEY);
+        if ((string)Environment::getContext() === 'Production') {
+            $nextSync = $this->registry->get(RegistryInterface::NAMESPACE, RegistryInterface::KEY);
 
-        $view = GeneralUtility::makeInstance(StandaloneView::class);
-        $view->setTemplatePathAndFilename('EXT:site_t3demo/Resources/Private/Templates/ToolbarItems/Timer.html');
-        $view->assign('nextSync', $nextSync);
+            $view = GeneralUtility::makeInstance(StandaloneView::class);
+            $view->setTemplatePathAndFilename('EXT:site_t3demo/Resources/Private/Templates/ToolbarItems/Timer.html');
+            $view->assign('nextSync', $nextSync);
 
-        return $view->render();
+            return $view->render();
+        }
+
+        return '';
     }
 
     public function hasDropDown(): bool

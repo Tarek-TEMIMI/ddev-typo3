@@ -1,7 +1,7 @@
 @import "variables";
 
 /* custom login screen */
-.typo3-login {
+body > .typo3-login {
 	background-repeat: repeat;
 	background-size: 600px;
 }
@@ -45,7 +45,7 @@
 		grid-column-start: 1;
 		grid-column-end: 3;
 	}
-	.typo3-login-wrap {
+    .typo3-login-container .typo3-login-wrap {
 		max-width: 640px;
 	}
 }

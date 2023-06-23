@@ -36,7 +36,9 @@
 			<h2 class="b_mainteaser__header">{data.header}</h2>
 		</f:if>
 		<f:if condition="{data.bodytext}">
-			<p class="b_mainteaser__text">{data.bodytext -> f:format.nl2br()}</p>
+			<p class="b_mainteaser__text">
+                <f:format.stripTags>{data.bodytext -> f:format.nl2br()}</f:format.stripTags>
+            </p>
 		</f:if>
 		<f:if condition="{data.link}">
 			<f:switch expression="{data.linkconfig}">

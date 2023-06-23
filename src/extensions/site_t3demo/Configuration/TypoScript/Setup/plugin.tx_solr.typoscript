@@ -19,7 +19,8 @@ plugin.tx_solr {
             12.value = recipe
           }
 
-          media_intS = media
+          media_intS = TEXT
+          media_intS.field = media
         }
       }
     }

@@ -59,10 +59,10 @@ foreach ($doktypesToAdd as $item) {
         'pages',
         'doktype',
         [
-            'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:pages.doktype.' . $item[0],
-            $item[1],
-            $item[2] ? 'apps-pagetree-page-' . $item[0] : '',
-            'default',
+            'label' => 'LLL:EXT:site_t3demo/Resources/Private/Language/locallang_db.xlf:pages.doktype.' . $item[0],
+            'value' => $item[1],
+            'icon' => $item[2] ? 'apps-pagetree-page-' . $item[0] : '',
+            'group' => 'default',
         ]
     );
     $GLOBALS['TCA']['pages']['ctrl']['typeicon_classes'][$item[1]] = $item[2] ? 'apps-pagetree-page-' . $item[0] : 'apps-pagetree-page-default';
