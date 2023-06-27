@@ -1,25 +1,26 @@
-main:
-    stage: production
-    hostname: demo01.typo3server.ch
-    user: demo-prod
-    writable_mode: chmod
-    forward_agent: true
-    deploy_path: ~/demo.typo3.org
-    keep_releases: 2
-contentmaster:
-    stage: contentmaster
-    hostname: demo01.typo3server.ch
-    user: demo-content
-    writable_mode: chmod
-    forward_agent: true
-    deploy_path: ~/content.demo.typo3.org
-    keep_releases: 2
-staging:
-    stage: staging
-    hostname: demo01.typo3server.ch
-    user: demo-test
-    writable_mode: chmod
-    forward_agent: true
-    deploy_path: ~/test.demo.typo3.org
-    keep_releases: 2
+hosts:
+  production:
+      stage: production
+      hostname: demo01.typo3server.ch
+      remote_user: demo-prod
+      writable_mode: chmod
+      forward_agent: true
+      deploy_path: ~/demo.typo3.org
+      keep_releases: 2
+  contentmaster:
+      stage: contentmaster
+      hostname: demo01.typo3server.ch
+      remote_user: demo-content
+      writable_mode: chmod
+      forward_agent: true
+      deploy_path: ~/content.demo.typo3.org
+      keep_releases: 2
+  staging:
+      stage: staging
+      hostname: demo01.typo3server.ch
+      remote_user: demo-test
+      writable_mode: chmod
+      forward_agent: true
+      deploy_path: ~/test.demo.typo3.org
+      keep_releases: 2
 
