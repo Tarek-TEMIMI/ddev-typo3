@@ -2,9 +2,9 @@
 namespace Deployer;
 
 require 'recipe/common.php';
-require 'recipe/rsync.php';
+require 'contrib/rsync.php';
 
-inventory(__DIR__ . '/servers.yml');
+import(__DIR__ . '/servers.yml');
 
 $sharedDirectories = [
     'web/fileadmin',
@@ -27,6 +27,7 @@ $exclude = [
     'CODE_OF_CONDUCT.md',
     'build',
 ];
+
 set('rsync', [
     'exclude' => array_merge($sharedDirectories, $sharedFiles, $exclude),
     'exclude-file' => false,
@@ -60,16 +61,17 @@ task('typo3:language:update', function() {
 task('php:reload', function() {
     //run('php-reload');
     run('sudo /usr/sbin/service php74-demo-content reload');
-})->onStage('contentmaster');
+})->select('stage=contentmaster');
+
 task('php:reload-prod', function() {
     //run('php-reload');
     run('sudo /usr/sbin/service php74-demo-prod reload');
-})->onStage('production');
+})->select('stage=production');
 
 task('typo3:demo:disablelogin', function() {
     cd('{{release_path}}');
     run('composer2 remove b13/demologin');
-})->onStage('contentmaster');
+})->select('stage=contentmaster');
 
 task('deploy', [
     'deploy:prepare',
@@ -87,8 +89,8 @@ task('deploy', [
     'typo3:cache:flush',
     'typo3:language:update',
     'deploy:unlock',
-    'cleanup',
-    'success'
+    'deploy:cleanup',
+    'deploy:success'
 ]);
 
 // unlock after failure
