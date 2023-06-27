@@ -22,6 +22,9 @@ $writeableDirectories = [
 ];
 set('writable_dirs', $writeableDirectories);
 
+// Use composer v2
+set('bin/composer', 'composer2');
+
 $exclude = [
     '.composer-cache',
     'CODE_OF_CONDUCT.md',
@@ -33,7 +36,7 @@ set('rsync', [
     'exclude-file' => false,
     'include' => [],
     'include-file' => false,
-    'filter' => [],
+    'filter' => ['dir-merge,-n /.gitignore'],
     'filter-file' => false,
     'filter-perdir' => false,
     'flags' => 'avz',
@@ -42,9 +45,9 @@ set('rsync', [
 ]);
 set('rsync_src', '.');
 
-task('typo3:database:updateschema', function () {
+task('typo3:extension:setup', function () {
     cd('{{release_path}}');
-    run('bin/typo3 database:updateschema "*.add"');
+    run('bin/typo3 extension:setup');
 });
 
 task('typo3:cache:flush', function() {
@@ -70,20 +73,18 @@ task('php:reload-prod', function() {
 
 task('typo3:demo:disablelogin', function() {
     cd('{{release_path}}');
-    run('composer2 remove b13/demologin');
+    run('{{bin/composer}} remove b13/demologin');
 })->select('stage=contentmaster');
 
-task('deploy:update_code')->hidden();
+task('deploy:update_code')->hidden()->disable();
 
 task('deploy', [
     'deploy:prepare',
-    'deploy:lock',
-    'deploy:release',
     'rsync:warmup',
-    'rsync',
+    'deploy:vendors',
     'deploy:shared',
     'deploy:writable',
-    'typo3:database:updateschema',
+    'typo3:extension:setup',
     'deploy:symlink',
     'typo3:demo:disablelogin',
     'php:reload',

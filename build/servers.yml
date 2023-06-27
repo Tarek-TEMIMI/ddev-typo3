@@ -23,4 +23,3 @@ hosts:
       forward_agent: true
       deploy_path: ~/test.demo.typo3.org
       keep_releases: 2
-
