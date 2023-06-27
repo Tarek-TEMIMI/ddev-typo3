@@ -44,17 +44,17 @@ set('rsync_src', '.');
 
 task('typo3:database:updateschema', function () {
     cd('{{release_path}}');
-    run('bin/typo3cms database:updateschema "*.add"');
+    run('bin/typo3 database:updateschema "*.add"');
 });
 
 task('typo3:cache:flush', function() {
     cd('{{release_path}}');
-    run('bin/typo3cms cache:flush');
+    run('bin/typo3 cache:flush');
 });
 
 task('typo3:language:update', function() {
     cd('{{release_path}}');
-    run('bin/typo3cms language:update');
+    run('bin/typo3 language:update');
 });
 
 // needed for t3o infrastructure
@@ -72,6 +72,8 @@ task('typo3:demo:disablelogin', function() {
     cd('{{release_path}}');
     run('composer2 remove b13/demologin');
 })->select('stage=contentmaster');
+
+task('deploy:update_code')->hidden();
 
 task('deploy', [
     'deploy:prepare',
