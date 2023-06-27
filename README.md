@@ -22,8 +22,8 @@ The demo project also serves as a best practices example for using and setting u
 Requirements:
 
 * DDEV, see [Get Started with DDEV](https://www.ddev.com/get-started/)
-* Composer >= 2.2
-* PHP >= 7.4.1 <= 8.0.99
+* Composer >= 2.5
+* PHP >= 8.1
 
 To set up the TYPO3 Demo Project for local development
 
@@ -35,9 +35,9 @@ To set up the TYPO3 Demo Project for local development
    2. Extract the downloaded file
    3. Copy the `fileadmin` folder to `<document root>web/fileadmin`
    4. Import database: `ddev import-db --src=/path/to/database/dump.sql.gz`
-6. Update schema: `ddev typo3cms database:updateschema`
-7. Create a backend user `ddev typo3cms backend:createadmin username password`
-8. Start the project running `ddev start`
+5. Update schema: `ddev typo3 database:updateschema`
+6. Create a backend user `ddev typo3 backend:createadmin username password`
+7. Start the project running `ddev start`
 
 ## Reset feature
 For technical documentation see https://docs.google.com/document/d/1oRHFK35haOP0oXyO6H1Ufe7r3VKnuA6iZe6ua8jPefU/ (please contact us via Slack channel #cig-typo3-demo)
