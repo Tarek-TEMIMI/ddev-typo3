@@ -4,6 +4,8 @@ namespace Deployer;
 require 'recipe/common.php';
 require 'contrib/rsync.php';
 
+set('rsync_src', '../');
+
 import(__DIR__ . '/servers.yml');
 
 $sharedDirectories = [
@@ -29,6 +31,12 @@ $exclude = [
     '.composer-cache',
     'CODE_OF_CONDUCT.md',
     'build',
+    '.git*',
+    '.ddev',
+    '.editorconfig',
+    '.idea',
+    '.php-cs-fixer.php',
+    'phpstan.neon',
 ];
 
 set('rsync', [
@@ -43,7 +51,6 @@ set('rsync', [
     'options' => ['delete'],
     'timeout' => 300
 ]);
-set('rsync_src', '.');
 
 task('typo3:extension:setup', function () {
     cd('{{release_path}}');
@@ -62,13 +69,11 @@ task('typo3:language:update', function() {
 
 // needed for t3o infrastructure
 task('php:reload', function() {
-    //run('php-reload');
-    run('sudo /usr/sbin/service php74-demo-content reload');
+    run('php-reload');
 })->select('stage=contentmaster');
 
 task('php:reload-prod', function() {
-    //run('php-reload');
-    run('sudo /usr/sbin/service php74-demo-prod reload');
+    run('php-reload');
 })->select('stage=production');
 
 task('typo3:demo:disablelogin', function() {
@@ -76,11 +81,13 @@ task('typo3:demo:disablelogin', function() {
     run('{{bin/composer}} remove b13/demologin');
 })->select('stage=contentmaster');
 
+// Because we are using rsync, this task is disabled
+// to avoid to trigger git
 task('deploy:update_code')->hidden()->disable();
 
 task('deploy', [
     'deploy:prepare',
-    'rsync:warmup',
+    'rsync',
     'deploy:vendors',
     'deploy:shared',
     'deploy:writable',
