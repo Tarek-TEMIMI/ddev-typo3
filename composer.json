@@ -83,6 +83,7 @@
 		]
 	},
 	"require-dev": {
+		"helmich/typo3-typoscript-lint": "^3.1",
 		"saschaegerer/phpstan-typo3": "^1.0.0",
 		"typo3/coding-standards": "^0.5.0"
 	}
