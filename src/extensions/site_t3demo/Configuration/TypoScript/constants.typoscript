@@ -24,5 +24,5 @@ styles.templates {
 umami-website-id = 4787f97e-d6be-428f-9710-dc374a6c1570
 
 [applicationContext == "Production"]
-  umami-website-id = 5092964f-4f3e-4bbc-9717-26b4bfb68ca4
+umami-website-id = 5092964f-4f3e-4bbc-9717-26b4bfb68ca4
 [end]

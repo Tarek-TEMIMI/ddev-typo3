@@ -1,77 +1,95 @@
 @import 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'
 
-# return the number of content elements for a given colPos
-# usage in Fluid: {f:cObject(typoscriptObjectPath: 'lib.hasContent', data: '{colPos: 0}')}
-lib.hasContent = TEXT
-lib.hasContent.numRows {
-  table = tt_content
-  select.where = colPos = {field:colPos}
-  select.where.insertData = 1
-}
-
-# render content from specified colPos
-# usage in Fluid: {f:cObject(typoscriptObjectPath: 'lib.renderContent', data: '{colPos: 0, slide: "-1", max: '1'}')}
-lib.renderContent = CONTENT
-lib.renderContent {
-  table = tt_content
-  select {
-    orderBy = sorting
-    where = colPos = {field:colPos}
-    where.insertData = 1
-    max.field = max
-  }
-  slide.field = slide
-}
-
-# use fluid to render page templates
-lib.fluidPage = FLUIDTEMPLATE
-lib.fluidPage {
-  templateRootPaths.10 = EXT:site_t3demo/Resources/Private/Pages/Templates/
-  layoutRootPaths.10 = EXT:site_t3demo/Resources/Private/Pages/Layouts/
-  partialRootPaths.10 = EXT:site_t3demo/Resources/Private/Pages/Partials/
-  partialRootPaths.9 = {$b13.snippetRootPath}
-
-  templateName = TEXT
-  templateName.data = pagelayout
-  templateName.stdWrap.replacement {
-    10.search = pagets__
-    10.replace =
+lib {
+  # return the number of content elements for a given colPos
+  # usage in Fluid: {f:cObject(typoscriptObjectPath: 'lib.hasContent', data: '{colPos: 0}')}
+  hasContent = TEXT
+  hasContent.numRows {
+    table = tt_content
+    select {
+      where = colPos = {field:colPos}
+      where.insertData = 1
+    }
   }
 
-  dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-  dataProcessing.10 {
-    if.isTrue.field = media
-    references.fieldName = media
-    references.table = pages
-    sorting = sorting_foreign
-    as = media
+  # render content from specified colPos
+  # usage in Fluid: {f:cObject(typoscriptObjectPath: 'lib.renderContent', data: '{colPos: 0, slide: "-1", max: '1'}')}
+  renderContent = CONTENT
+  renderContent {
+    table = tt_content
+    select {
+      orderBy = sorting
+      where = colPos = {field:colPos}
+      where.insertData = 1
+      max.field = max
+    }
+    slide.field = slide
   }
-}
 
-# add fluid template paths
-lib.contentElement {
-  partialRootPaths.9 = {$b13.snippetRootPath}
+  # use fluid to render page templates
+  fluidPage = FLUIDTEMPLATE
+  fluidPage {
+    templateRootPaths.10 = EXT:site_t3demo/Resources/Private/Pages/Templates/
+    layoutRootPaths.10 = EXT:site_t3demo/Resources/Private/Pages/Layouts/
+    partialRootPaths {
+      10 = EXT:site_t3demo/Resources/Private/Pages/Partials/
+      9 = {$b13.snippetRootPath}
+    }
 
-  # this chooses a fluid template based on the CType of the element we are rendering
-  templateName >
-  templateName.ifEmpty.cObject = TEXT
-  templateName.ifEmpty.cObject.field = CType
+    templateName = TEXT
+    templateName {
+      data = pagelayout
+      stdWrap.replacement.10 {
+        search = pagets__
+        replace =
+      }
+    }
 
-  dataProcessing.1587463200 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-  dataProcessing.1587463200 {
-    if.isTrue.field = assets
-    references.fieldName = assets
-    references.table = tt_content
-    sorting = sorting_foreign
-    as = files
+    dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+    dataProcessing.10 {
+      if.isTrue.field = media
+      references {
+        fieldName = media
+        table = pages
+      }
+      sorting = sorting_foreign
+      as = media
+    }
   }
-  dataProcessing.1602346861733 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-  dataProcessing.1602346861733 {
-    if.isTrue.field = image
-    references.fieldName = image
-    references.table = tt_content
-    sorting = sorting_foreign
-    as = images
+
+  # add fluid template paths
+  contentElement {
+    partialRootPaths.9 = {$b13.snippetRootPath}
+
+    # this chooses a fluid template based on the CType of the element we are rendering
+    templateName >
+    templateName.ifEmpty {
+      cObject = TEXT
+      cObject.field = CType
+    }
+
+    dataProcessing {
+      1587463200 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+      1587463200 {
+        if.isTrue.field = assets
+        references {
+          fieldName = assets
+          table = tt_content
+        }
+        sorting = sorting_foreign
+        as = files
+      }
+      1602346861733 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+      1602346861733 {
+        if.isTrue.field = image
+        references {
+          fieldName = image
+          table = tt_content
+        }
+        sorting = sorting_foreign
+        as = images
+      }
+    }
   }
 }
 

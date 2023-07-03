@@ -1,5 +1,4 @@
 lib.fluidPage {
-
   settings {
     startpage = {$pages.startpage}
     privacy = {$pages.privacy}
@@ -53,9 +52,9 @@ lib.fluidPage {
 }
 
 [frontend.user.isLoggedIn]
-  lib.fluidPage.settings.userIsLoggedIn = true
-
-  lib.fluidPage.dataProcessing {
+lib.fluidPage {
+  settings.userIsLoggedIn = true
+  dataProcessing {
     1611147990940 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
     1611147990940 {
       special = list
@@ -64,8 +63,9 @@ lib.fluidPage {
       as = currentpage
     }
   }
+}
 [end]
 
 [siteLanguage("typo3Language") == 'he']
-  lib.fluidPage.settings.hideSearch = 1
+lib.fluidPage.settings.hideSearch = 1
 [end]

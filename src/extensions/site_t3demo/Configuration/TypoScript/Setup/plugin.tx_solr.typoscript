@@ -42,8 +42,10 @@ plugin.tx_solr {
     results {
       resultsPerPage = 10
       resultsHighlighting = 1
-      resultsHighlighting.fragmentSize = 100
-      resultsHighlighting.wrap = <span class="b_search__highlight">|</span>
+      resultsHighlighting {
+        fragmentSize = 100
+        wrap = <span class="b_search__highlight">|</span>
+      }
     }
 
     faceting = 1
