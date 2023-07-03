@@ -30,6 +30,14 @@ code-analysis:php:
     - if [ -e bin/phpstan ]; then php -d memory_limit=2G ./bin/phpstan analyse; fi
     - if [ -e bin/php-cs-fixer ]; then php -d memory_limit=2G ./bin/php-cs-fixer fix -v --dry-run --stop-on-violation --using-cache=no; fi
 
+code-analysis:typoscript:
+  stage: lint
+  image: composer:2.5.5
+  before_script:
+    - install-php-extensions intl
+    - composer install $composer_options
+  script:
+    - if [ -e bin/typoscript-lint ]; then php -d memory_limit=2G ./bin/typoscript-lint; fi
 
 # Builds the artifacts for the production system (composer first)
 build:php:
