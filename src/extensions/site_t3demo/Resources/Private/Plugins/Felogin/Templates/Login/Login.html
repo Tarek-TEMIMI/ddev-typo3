@@ -23,7 +23,7 @@
         </f:form>
     </f:then>
     <f:else>
-        <f:form target="_top" fieldNamePrefix="" action="login">
+        <f:form target="_top" fieldNamePrefix="" action="login" requestToken="{requestToken}" additionalAttributes="{spellcheck: 'false'}">
             <f:render section="content" arguments="{_all}"/>
         </f:form>
     </f:else>
@@ -44,13 +44,13 @@
             <label class="b_login__label" for="user">
                 <f:translate key="username" extensionName="site_t3demo"/>
             </label>
-						<f:form.textfield name="user" id="user" class="b_login__input" value="pomologist3000"/>
+            <f:form.textfield name="user" id="user" class="b_login__input" value="pomologist3000" required="true" additionalAttributes="{autocomplete: 'username'}"/>
         </div>
         <div class="b_login__row">
             <label class="b_login__label" for="password">
 							<f:translate key="password" extensionName="site_t3demo"/>
             </label>
-						<f:form.password name="pass" data="{rsa-encryption: ''}" id="password" class="b_login__input" value="iloveapples"/>
+            <f:form.password name="pass" data="{rsa-encryption: ''}" id="password" class="b_login__input" value="iloveapples" additionalAttributes="{required: 'required', autocomplete: 'current-password'}"/>
         </div>
 
         <div class="b_login__row b_login__row--submit">
