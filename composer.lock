@@ -457,16 +457,16 @@
         },
         {
             "name": "b13/menus",
-            "version": "1.0.1",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/b13/menus.git",
-                "reference": "1cf95155c9f7cd35579906092a4ac567441c4d6e"
+                "reference": "6479289b3d84ebf86899e6bee590dcc9218882d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/b13/menus/zipball/1cf95155c9f7cd35579906092a4ac567441c4d6e",
-                "reference": "1cf95155c9f7cd35579906092a4ac567441c4d6e",
+                "url": "https://api.github.com/repos/b13/menus/zipball/6479289b3d84ebf86899e6bee590dcc9218882d3",
+                "reference": "6479289b3d84ebf86899e6bee590dcc9218882d3",
                 "shasum": ""
             },
             "require": {
@@ -481,7 +481,7 @@
                 "typo3/cms-install": "^11.5",
                 "typo3/coding-standards": "^0.5",
                 "typo3/tailor": "^1.0",
-                "typo3/testing-framework": "^7"
+                "typo3/testing-framework": "7.0.2"
             },
             "type": "typo3-cms-extension",
             "extra": {
@@ -504,9 +504,9 @@
             "description": "Easy and fast menus for TYPO3 Frontends",
             "support": {
                 "issues": "https://github.com/b13/menus/issues",
-                "source": "https://github.com/b13/menus/tree/1.0.1"
+                "source": "https://github.com/b13/menus/tree/1.0.3"
             },
-            "time": "2023-05-04T10:39:52+00:00"
+            "time": "2023-08-08T14:21:56+00:00"
         },
         {
             "name": "b13/picture",
